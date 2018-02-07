@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>懒加载</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+			li{
+				list-style: none;
+				padding: 10px 0;
+			}
+			.content{
+				text-align: center;
+			}
+			.item{
+				margin: 50px;
+				display: inline-block;
+				text-align: initial;
+				border: 1px dashed gray;
+			}
+			.item .img{
+				width: 400px;
+				height: 400px;
+				border: 1px solid black;
+				position: relative;
+			}
+			.item .title{
+				font-size: 16px;
+				font-weight: bold;
+				color: blue;
+			}
+			.item .from{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				type:'get',
+				url:'all_data.json',
+				async:true,
+				success:function(shuju){
+					var htmlStr = '';
+					for (var i=0;i<shuju.length;i++) {
+						htmlStr += '<ul class="item">'+
+									'<li class="img">'+
+										'<img data-img="'+shuju[i].img_url+'" alt="暂未加载" />'+
+									'</li>'+
+									'<li class="title">'+shuju[i].title+'</li>'+
+									'<li class="from">'+shuju[i].img_from+'</li>'+
+								'</ul>';
+					}
+					$('.content').append(htmlStr);
+					$(window).load();
+				}
+			});
+			//监听元素是否处于可视状态
+			var distance = 0;//需要提前加载的距离，现在是0，也就是不需要提前加载
+			$(window).on("load scroll",function(){
+				$(".item").each(function(){
+					if ($(this).find("img").attr("src")) {//如果已经加载，则跳过
+						return true;
+					}
+					var offsetH = $(this).offset().top;//每个元素与document顶部的距离
+					var winHeight = $(window).height();//窗口高度
+					var scrollT = $(document).scrollTop();//网页的scrollTop
+					//console.log(scrollT >= offsetH - winHeight);//可以看到符合条件的标签数量(打印true的次数就是满足条件的数量)
+					if (scrollT + distance >= offsetH - winHeight) {//标签即将进入可视范围
+							var src = $(this).find("img").attr("data-img");
+							$(this).find("img").attr("src",src);
+					}
+				});
+			});
+		});
+		
+	</script>
+</html>
