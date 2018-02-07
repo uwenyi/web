@@ -1,0 +1,284 @@
+@charset "utf-8";
+*{padding:0;margin:0;font-family: "微软雅黑";}
+a{text-decoration: none;}
+li{list-style: none;}
+.clearfix:after{content:" "; display: block;height: 0;clear: both;overflow: hidden;}
+/*样式*/
+#container{
+	width: 430px;
+	height: 330px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #aaa;
+	position: absolute;
+	left: 50%;
+	top: 300px;
+	margin-left:-215px ;
+	border: 1px solid #a0b1be;	
+}
+
+#loginoption,#netset{
+	position: absolute;
+	left: 0;
+	top:0;
+	border-radius: 5px;
+	background: #ebf2f9;
+	height: 330px;
+	width: 430px;
+}
+#loginheader{
+	z-index: 20;
+	height: 182px;
+	background: url(../img/timbg.png);
+}
+#loginheader ul{
+	margin: 13px 13px 0 0 ;
+	float: right;
+}
+#loginheader ul li{
+	height: 14px;
+	width: 14px;
+	float: left;
+	margin-left: 13px;
+}
+#loginheader .set{
+	background: url(../img/setbtn.png) center no-repeat;
+}
+#loginheader .minimality{
+	background: url(../img/minbtn.png) center no-repeat;
+}
+#loginheader .close{
+	background: url(../img/closebtn.png) center no-repeat;
+}
+#loginbody {
+	padding-left: 43px;
+	margin-top: 12px;
+}
+
+#loginbody .user,#loginbody .userentry,#loginbody .userback{
+	float: left;
+}
+#loginbody .head{
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+	overflow: hidden;
+}
+#loginbody .userentry{
+	margin: 0px 10px;
+}
+#loginbody .account input{
+	display: block;
+	width: 194px;
+	height: 30px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1px solid #d1d1d1;
+	outline: none;
+	padding-left: 5px;
+	position: relative;
+}
+
+#loginbody .account input:hover{
+	border: 1px solid #1583dd;
+	z-index: 3;
+}
+
+#loginbody .account input:first-child{
+	border-bottom-left-radius:0;
+	border-bottom-right-radius: 0;
+}
+#loginbody .account input:last-child{
+	border-top-left-radius:0;
+	border-top-right-radius: 0;
+	margin-top: -1px;
+	z-index: 2;
+	
+}
+#loginbody .chiose{
+	margin-top: 8px;
+	font-size: 12px;
+}
+#loginbody .chiose .selected{
+	content: "";
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background:url(../img/choicebtn.png);
+	border: 1px solid #ebf2f9;
+}
+#loginbody .chiose .selected:hover{
+	border: 1px solid #ebf2f9;
+}
+#loginbody .chiose i{
+	display: inline-block;
+	height: 14px;
+	width: 14px;
+	border: 1px solid #AAAAAA;
+	vertical-align:middle
+}
+#loginbody .chiose i:hover{
+	border: 1px solid #3076c1;
+}
+#loginbody .chiose span{
+	color: #656565;
+	font-size: 14px;
+	vertical-align:middle;
+	margin-right: 36px;
+}
+#loginbody .chiose span:last-child{
+	margin-right: 0px;
+}
+#loginbody a{
+	display: block;
+	font-size: 12px;
+	color: #00a3ff;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+}
+#loginfooter {
+	clear: left;
+	padding-top: 10px;
+	width: 430px;
+	padding: 0 10px;
+	margin-top: 11px;
+	box-sizing: border-box;
+}
+#loginfooter span{
+	display: inline-block;
+	width: 22px;
+	height: 19px;
+	vertical-align: bottom;
+}
+#loginfooter .addaccount{
+	background: url(../img/addaccount.png) 0 center no-repeat;
+}
+#loginfooter .ewm{
+	background: url(../img/ewm.png) center no-repeat;
+}
+
+#loginfooter .loginbtn{
+	background: #00a3ff;
+	width: 194px;
+	height: 30px;
+	outline: none;
+	border: none;
+	color: #fff;
+	font-size: 14px;
+	letter-spacing: 10px;
+	padding-left: 10px;
+	border-radius: 5px;
+	margin:0 65px 0 95px;
+	
+}
+#loginfooter .loginbtn:hover{
+	background: ;
+}
+
+/*状态选择*/
+#loginbody .user{
+	position: relative;
+}
+#status {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+}
+#status .current-status{
+	width: 13px;
+	height: 13px;
+	border-radius: 13px;
+	
+}
+.status-item{
+	display: none;
+	margin-top: 7px;
+	background: #FFFFFF;
+	position: absolute;
+	width: 136px;
+	padding-left: 16px;
+	padding-right: 4px;
+	box-sizing: border-box;
+	box-shadow: 0 0 10px #AAAAAA;
+}
+.status-item span{
+	display: inline-block;
+	vertical-align: middle;
+	height: 48px;
+	width: 80px;
+	border-bottom: 1px solid #f3f3f3;
+	
+}
+.status-item .status-icon{
+	width: 13px;
+	height: 13px;
+	margin-right: 14px;
+	border:0
+}
+.status-item li{
+	height: 48px;
+	line-height: 48px;
+	font-size: 14px;
+}
+.online{
+	background: url(../img/online.png);
+}
+.busy{
+	background: url(../img/busy.png);
+}
+.stealth{
+	background: url(../img/stealth.png);
+}
+/*
+#netset{
+	transform:rotateY(-180deg);
+	color: #000;
+	font-size: 12px;
+	z-index: 50;
+}
+#netset .nethead{
+	margin-bottom: 66px;
+}
+#netset .netbody{
+	padding: 0px 15px;
+	box-sizing: border-box;
+	margin-top: 38px;
+}
+#netset .netbody .title{
+	margin-bottom: 22px;
+}
+#netset .netbody .gap{
+	margin-bottom: 5px;
+}
+#netset input,#netset select{
+	border-radius: 3px;
+	border:1px solid #dcdfe3;
+	width: 85px;
+	height: 22px;
+	box-sizing: border-box;
+}
+#netset .long{
+	width: 120px;
+}
+#netset .netfoot{
+	background: #cde2f2;
+	width: 430px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 10px 0;
+}
+#netset .netfoot button{
+	width: 62px;
+	height: 24px;
+	border: 1px solid #ccc;
+	background: #fff;
+	margin-right: 14px;
+	z-index: 12;
+	
+}
+#netset .netfoot button:first-child{
+	margin-left: 270px;
+}
+*/
