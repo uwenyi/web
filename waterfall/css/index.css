@@ -1,0 +1,7 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+img{display: block;}
+#main{position: relative;}
+.spacebox{padding-left:10px; padding-bottom:10px;float:left}
+.imgbox{border:1px #ccc solid;box-shadow:0px 0px 5px #aaa;width:300px}
+.imgbox img{width:100%}
