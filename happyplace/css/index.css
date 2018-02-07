@@ -1,0 +1,128 @@
+@charset "utf-8";
+/****引入其此页面需要的其他css文件******/
+@import url("common.css");
+@import url("swiper.min.css");
+/*************商品分类列表**************/
+.goods-class li{height: 57px;background: #697783;width: 167px;line-height: 54px;text-indent: 31px;cursor: pointer;}
+.goods-class a{font-size: 16px ;color:#FFF;font-weight: normal;text-align: center;letter-spacing: 0.2em;}
+.goods-class i{display: inline-block;height: 11px;width: 13px;background: url(../img/icon/bgimgs.png) no-repeat -301px -52px;margin-left: 30px;}
+.goods-class .listicon{margin-left: 15px;}
+.goods-class .gclass-title{background: #92a9b9;height: 62px;line-height: 62px;}
+.goods-class .listicon{background-position:-301px -16px;}
+/***********可以隐藏的列表******************/
+.class-content{position: relative;}
+.goods-class .class-content li a{font-size: 14px;}
+.class-content li:hover{background-color: #43d6d1;}
+.goods-class .class-content li:hover i{background-position: -301px -34px;}
+/**************轮播图***********/
+.swiper-pagination-bullet-active{background:#4ed6d1;}
+.swiper-button-prev{width: 58px;height: 58px;background: url(../img/icon/bgimgs.png) no-repeat -116px -156px;}
+.swiper-button-next{width: 58px;height: 58px;background: url(../img/icon/bgimgs.png) no-repeat -185px -88px;}
+/***********隐藏列表的弹出列表************************************************************/
+.class-detail{border: 1px solid #ddd;background:#fff;width:565px;height: 305px;padding: 35px 0 0 35px;
+			 text-indent: 0px;font-size: 0;position: absolute;left: 167px;top: 0px;z-index: 10;display: none;}
+.class-detail a{color: #3c3c3c;letter-spacing: 0;width: 160px;height: 80px;display: inline-block;text-align: left;line-height: 80px;margin-bottom: 15px;margin-right: 20px;}
+.class-detail img,.class-detail span{display: inline-block;vertical-align: middle;}
+.class-detail span{margin-left: 20px;}
+.class-detail span:hover{color: #43d6d1;}
+/**************************************国家分类*****************************************************/
+.country-class,.banner{margin-left: 10px;}
+.country-class a,.supermarket a{font-size: 14px;color: #4c4f4c;}
+.country-class a:hover{color: #42c2c3;}
+.country-name {width: 900px;}
+.country-name a{display: inline-block;width:87px;height: 29px;line-height: 29px;text-align: left;}
+.supermarket a{height: 24px;width:60px;background: url(../img/icon/bgimgs.png) -301px -84px no-repeat;display: block;padding-left: 32px;text-align: right;}
+.supermarket .world-markt{background-position: -301px -120px;margin-top: 8px;}
+.supermarket a:hover{color: #42c2c3;}
+/*************************************************banner*******************************************************/
+.banner{width: 1030px;height: 340px;background-color: #00CBCC;overflow: hidden;margin-top: 5px;position: relative;}
+.banner img{height: 340px;}
+.change-point{position: absolute;bottom: 20px;margin-left: -65px;left:50%;}
+.change-point li{width: 10px;height:10px;background: #dbdbd9;border-radius: 50px;float: left;margin-left: 8px;}
+.change-point .current-point{background: #4dd6d1;}
+.change-arrow {position: absolute;width: 990px;height:50px;padding: 0 20px;left: 0;top: 0;margin-top: 140px;}
+.change-arrow li{width: 58px;height: 58px;background: url(../img/icon/bgimgs.png) no-repeat -185px -88px;}
+.change-arrow .prevbtn{background-position: -116px -156px;}
+/********************************************专题精选(标题)***************************************************************************/
+.choice span{color: #4c4f4c;}
+.htitle{margin:20px 0;}
+.htitle h3{font-size: 24px;font-weight: normal;letter-spacing:0.1em;color: #4c4f4c;display: inline-block}
+.htitle a{color: #4c4f4c;font-size: 12px;}
+.htitle a:hover{color: #43d6d1;}
+.htitle span{margin: 0px 5px;}
+.htitle .rspace{display: inline-block;width: 30px;height: 2px;}
+.wordlink{margin-top: 8px;}
+/**********************************专题精选(图片)**************************************************/
+.choicePic a{float: left;margin-right: 10px;margin-bottom: 25px;}
+.choicePic dl{width: 396px;height: 252px;}
+.choicePic dt{width: 396px;height: 200px;overflow: hidden;}
+.choicePic dd{height: 50px;border: 1px solid #dddddd;border-top: 0px;text-align: center;line-height: 50px;}
+.choicePic span{font-size: 14px;color: #4c4f4c;}
+.choicePic .bracket::before{content: "【";}
+.choicePic .bracket::after{content: "】";}
+.choicePic a:nth-child(3n){margin: 0px;}  /******新技能get*********/
+.choicePic dt img{transition: 0.05s;}
+.choicePic dt img:hover{opacity: .8;margin-top: -1px;}
+/**********************最新尖货******************************/
+/*********按钮************/
+.right-btn,.left-btn{width: 32px;height: 32px;border:0px;outline: none;background: url(../img/icon/bgimgs.png) no-repeat;}
+.right-btn{background-position: -337px -8px;}
+.right-btn:hover{background-position: -380px -8px;}
+.left-btn{background-position: -337px -49px;}
+.left-btn:hover{background-position: -380px -49px;}
+/*********图片************/
+.newsome{overflow: hidden;}
+.product-list{width: 2420px;}
+.product-list dl{float: left;margin-right: 30px;position: relative;width: 280px;height: 400px;margin-bottom: 30px;}
+.product-list dt{width: 280px;}
+.product-list dt img{width: 280px;height: 280px;}
+.product-list dd {margin-top: 10px;}
+.product-list dd p{font-size: 16px;color: #000;}
+.product-list dd a{font-size: 12px;color: #848684;}
+.product-list dd .deti{display: inline-block;width: 100%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.product-list dd .deti:hover{text-decoration: underline;}
+.money{font-size: 22px;color: #00CBCC;font-family: helvetica;font-style: normal;line-height: 22px;}
+.money::before{content: "￥";}
+.product-list dd i img{display: inline-block;width: 21px;height: 14px;vertical-align: middle;margin-right: 15px;}
+/************左上角贴图*********/
+.hot{display: block;width: 50px;height: 50px;position: absolute;top:0;left: 0;z-index: 10;}
+/*****************************16国特品***************************************************/
+.fea-banner{width: 1210px;height: 280px;overflow: hidden;}
+.coffee{width: 1210px;}
+.coffee dl:nth-child(4n){margin-right: 0px;}
+/****************************大家都在说**********************************/
+.said-bg{background-color: #f3f3f3;padding: 50px 0 50px 0;}
+.all-said{overflow: hidden;}
+.all-said .clicka{width: 290px;background: #fff;display: block;padding-bottom: 20px;position: relative;
+					margin-right: 20px;float: left;box-shadow: 0px 0px 10px #eee;overflow: hidden;height: 530px;}
+.said-container{width: 2552px;}
+.clicka:hover .said-images{opacity: 0.9;}
+.clicka dd{margin: 15px 0;padding: 0px 20px 0px 20px;}
+.clicka .said-images{width: 319px;height: 319px;overflow: hidden;}
+.clicka p{color: #4c4f4c;font-size: 14px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;line-height: 14px;}
+.user-information{height: 28px;line-height: 28px;}
+.clicka .userhead{width: 25px;height: 25px;overflow: hidden;border-radius: 25px;vertical-align: middle;}
+.clicka .userhead img{width: 25px;height: 24px;display: block;}
+.clicka .username{color: #777777;width:30%;margin-left: 10px;}
+.user-information span,.user-information time{display: inline-block;}
+.clicka time{color: #a9a9b1;text-align: right;width:50%;}
+.clicka .three-line{line-height: 26px;white-space:normal;display: -webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp: 3;overflow: hidden;}
+/**************热门厂商*************/
+.store-show{border: 1px solid #ccc;width: 390px;height: 316px;margin-right: 16px;float: left;}
+.store-img img{width: 390px;}
+.store-show:last-child{margin: 0px;}
+.store-commodity{padding: 18px;}
+.store-commodity li{float: left;margin-left: 10px;}
+.store-commodity img{width: 75px;height: 75px;}
+.store-commodity img:hover{opacity: 0.9;}
+/**************国家分类*************/
+.countrys{padding-top: 90px;padding-bottom: 40px;}
+.state{float: left;margin-right: 38px;margin-bottom: 40px;}
+.state:nth-child(9n){margin-right: 0px;}
+.state dl{position: relative;}
+.state dt{height: 100px;width: 100px;border-radius: 100px;overflow: hidden;}
+.state dd{height: 100px;width: 100px;border-radius: 100px;visibility: hidden;
+		  position: absolute;left: 0;top: 0;z-index: 5;overflow: hidden;background: rgba(0,0,0,0.3)}
+.state p{text-align: center;margin-top: 20px;}
+.state:hover dd{visibility: visible;}
+/*****************************海外进口 工厂直购及底部在公共样式*************************************/

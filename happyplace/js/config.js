@@ -1,0 +1,9 @@
+require.config({
+	baseUrl:"/js",
+	paths:{
+		"jquery":["http://libs.baidu.com/jquery/2.0.0/jquery.min","jquery"],
+		"common":"common",
+		"index":"index",
+		"swiper":"swiper"
+	}
+})
