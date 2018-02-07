@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>喜地—纯进口生活用品平台</title>
+		<link rel="icon" href="img/icon/favicon.png" type="image/x-icon" />
+		<link href="css/index.css" rel="stylesheet" type="text/css" />
+		<script data-main="js/config" src="js/require.js"></script>
+		<script>
+			require(["jquery","swiper","common","index",])
+		</script>
+		       <style>
+       	/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+			::-webkit-scrollbar  
+			{  
+			    width: 10px;  
+			    height: 16px;  
+			    background-color: #8D8E8D;  
+			}  
+			  
+			/*定义滚动条轨道 内阴影+圆角*/  
+			::-webkit-scrollbar-track  
+			{  
+			    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  
+			    border-radius: 10px;  
+			    background-color: #F5F5F5;  
+			}  
+			  
+			/*定义滑块 内阴影+圆角*/  
+			::-webkit-scrollbar-thumb  
+			{  
+			    border-radius: 10px;  
+			    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1);  
+			    background-color: #8D8E8D;  
+			}  
+       </style>
+	</head>
+	<body>
+		<div id="top">
+			<div class="topinner center">
+				<ul class="nav clearfix">
+					<li>
+						<ins class="phone"></ins>
+						<a href="#" class="arrow">手机喜地</a>
+						<div class="downlist llist">
+							<img src="img/icon/wecode.png" />
+							<strong>手机逛喜地</strong>
+						</div>
+					</li>
+					<li>
+						<ins class="follow"></ins>
+						<a href="#" class="arrow">关注喜地</a>
+						<div class="downlist llist">
+							<img src="img/icon/wecode.png" />
+							<strong>关注喜地微信账号</strong>
+						</div>
+					</li>
+					<li>
+						<ins class="sever"></ins>
+						<a href="#" class="arrow">客户服务</a>
+						<div class="downlist llist">
+								<a href="#">联系客服</a>
+								<a href="#">常见问题</a>
+								<a href="#">在线客服</a>
+								<a href="#">意见反馈</a>
+								<a href="#">客服邮箱</a>
+						</div>
+					</li>
+					<li>
+						<ins class="notice"></ins>
+						<a href="#">消费者通知书</a>
+					</li>
+					<li>
+						<a href="#">全场满99包邮</a>
+					</li>
+					<li class="space"></li>
+					<li>
+						<a href="#">您好，请登录</a>
+					</li>
+					<li>
+						<a href="#">免费注册</a>
+					</li>
+					<li>
+						<a href="#">|</a>
+					</li>
+					<li>
+						<a href="#">我的订单</a>
+					</li>
+					<li>
+						<a href="#" class="arrow">个人中心</a>
+						<div class="downlist rlist">
+								<a href="#">我的优惠</a>
+								<a href="#">我的喜欢</a>
+								<a href="#">我的消息</a>
+								<a href="#">我的评价</a>
+								<a href="#">账户安全</a>
+								<a href="#">售后管理</a>
+						</div>
+					</li>
+					<li>
+						<a href="#">
+							<span class="buy-car"></span>
+							<span class="buy-tip">0</span>
+						</a>
+						<div class="downlist rlist">
+							<p>
+								<span class="ambox fl">
+									<span class="amount">总计：</span>
+									<span class="amountnmb">0</span>
+								</span>	
+								<a href="#" class="pay fr">去购物车结算&nbsp;<span class="paynmb">0</span></a>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!---------------定位会话框和回到顶部----------------------------->
+		<div class="fixedbox">
+			<a href="#" class="toparrow"></a>
+			<a href="#" class="chat"></a>
+		</div>
+		<!-----------------------------------------------搜索栏------------------------------------------------------->
+		<div class="search center clearfix">
+			<div class="logo fl">
+				<img src="img/icon/xdlogo.png" />
+			</div>
+			<form class="searchbox fl">
+				<input class="search-content" type="text" placeholder="更多2万个世界商品" />
+				<input class="submitbtn" type="submit" value="" />
+				<div id="search-suggest">
+					<!-------弹出列表------------->
+				<ul class="recent-search">
+					<li class="search-title">最近搜索<i></i></li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+				</ul>
+				<ul class="hot-search">
+					<li class="search-title">热门搜索</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+					<li>家居纺织</li>
+				</ul>
+		</div>
+			</form>
+			<ul class="point clearfix fr">
+				<li><i class="sea"></i><a href="#">海外进口</a></li>
+				<li><i class="factory"></i><a href="#">工厂直价</a></li>
+				<li><i class="original"></i><a href="#">原产纯品</a></li>
+				<li><i class="through"></i><a href="#">国内直邮</a></li>
+			</ul>
+		</div>
+		<!-----------------------------------------------商品分类------------------------------------------------------->
+		<div class="classify clearfix center">
+			<div class="goods-class fl">
+				<ul>
+					<li class="gclass-title">
+						<a>商品分类</a>
+						<i class="listicon"></i>
+					</li>
+				</ul>
+				<!---------------具体分类------------------------>
+				<ul class="class-content">
+					<li>
+						<a>商品分类</a>
+						<i></i>
+						<!---------------具体分类弹出框------------------------>
+						<div class="class-detail">
+							<a href="#">
+								<img src="img/pic/tableware1.png" />
+								<span>锅具</span>
+							</a>
+							<a href="#">
+								<img src="img/pic/tableware2.png" />
+								<span>锅具</span>
+							</a>
+							<a href="#">
+								<img src="img/pic/tableware3.png" />
+								<span>我要凑够</span>
+							</a>
+							<a href="#">
+								<img src="img/pic/tableware4.png" />
+								<span>四怎么样</span>
+							</a>
+							<a href="#">
+								<img src="img/pic/tableware5.png" />
+								<span>锅具</span>
+							</a>
+							<a href="#">
+								<img src="img/pic/tableware6.png" />
+								<span>锅具</span>
+							</a>
+							<a href="#">
+								<img src="img/pic/tableware7.png" />
+								<span>锅具</span>
+							</a>
+							<a href="#">
+								<img src="img/pic/tableware8.png" />
+								<span>锅具</span>
+							</a>
+							<a href="#">
+								<img src="img/pic/tableware1.png" />
+								<span>锅具</span>
+							</a>
+						</div>
+					
+					</li>
+					<li>
+						<a>商品分类</a>
+						<i></i>
+					</li>
+					<li>
+						<a>商品分类</a>
+						<i></i>
+					</li>
+					<li>
+						<a>商品分类</a>
+						<i></i>
+					</li>
+					<li>
+						<a>商品分类</a>
+						<i></i>
+					</li>
+					<li>
+						<a>商品分类</a>
+						<i></i>
+					</li>
+				
+				</ul>
+			</div>
+			<div class="country-class fl">
+				<div class="country-name fl">
+					<a href="#">16国特品</a>
+					<a href="#">日本</a>
+					<a href="#">德国</a>
+					<a href="#">日本</a>
+					<a href="#">韩国</a>
+					<a href="#">英国</a>
+					<a href="#">意大利</a>
+					<a href="#">法国</a>
+					<a href="#">西班牙</a>
+					<a href="#">希腊</a>
+					<a href="#">澳大利亚</a>
+					<a href="#">新西兰</a>
+					<a href="#">瑞典</a>
+					<a href="#">丹麦</a>
+					<a href="#">芬兰</a>
+					<a href="#">比利时</a>
+					<a href="#">西班牙</a>
+					<a href="#">希腊</a>
+				</div>
+				
+			</div>
+			<div class="supermarket fr">
+					<a href="#" class="all-article">全部文章</a>
+					<a href="#" class="world-markt">世界超市</a>
+			</div>
+			<!---------轮播图------->
+			<div class="banner fl">
+				<div class="swiper-container">
+				  <div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<img src="img/pic/banner1.jpeg" />
+					</div>
+					<div class="swiper-slide">
+						<img src="img/pic/banner2.jpeg" />
+					</div>
+					<div class="swiper-slide">
+						<img src="img/pic/banner3.jpeg" />
+					</div>
+					<div class="swiper-slide">
+						<img src="img/pic/banner4.jpeg" />
+					</div>
+					<div class="swiper-slide">
+						<img src="img/pic/banner5.jpeg" />
+					</div>							
+				  </div>
+				  <div class="swiper-pagination"></div>
+				  <div class="swiper-button-prev"></div>
+ 			      <div class="swiper-button-next"></div>
+				</div>
+			<!--	
+				<ul class="change-point">
+					<li class="current-point"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul class="change-arrow">
+					<li class="prevbtn fl"></li>
+					<li class="nextbtn fr"></li>
+				</ul>-->
+			</div>
+		</div>
+		<!---------------专题精选------------------------>
+		<div class="choice center">
+			<div class="htitle clearfix">
+				<div class="title-h fl">
+					<h3>专题精选</h3>
+					<span>|</span>
+					<span>贴身呵护，从天然健康开始</span>
+				</div>
+				<div class="wordlink fr">
+					<a href="#">锅具</a><span>/</span><a href="#">餐具 </a><span>/</span><a href="#">储物清洁</a><span>/</span><a href="#">进口食品</a> 
+					<span class="rspace"></span>
+					<a href="#" class="fr">往期回顾&gt;</a>
+				</div>
+			</div>
+			<!---------------标题结束------------------>
+			<div class="choicePic clearfix">
+				<!---此版块在index.js里----->
+			</div>
+		</div>
+		<div class="newsome center">
+			<div class="htitle clearfix">
+				<div class="title-h fl">
+					<h3>最新尖货</h3>
+				</div>
+				<div class="change-btn fr">
+					<button class="left-btn"></button>
+					<button class="right-btn"></button>
+				</div>
+			</div>	
+			<div class="product-list">
+					<!--<dl>
+						<ins class="hot"><img src="img/pic/hot_icon.png"/></ins>
+						<dt>
+							<a href="#"><img src="img/pic/product_2.jpg"/></a>
+						</dt>
+						<dd>
+							<p>短短几分钟就可做出美味培根</p>
+						</dd>
+						<dd>
+							<a href="#">澳大利亚原产decor 微波烹饪系列培根盒保鲜盒</a>
+						</dd>
+						<dd>
+							<span class="money">33.55</span>
+						</dd>
+						<dd>
+							<i><img src="img/icon/c_japan.jpg"/></i><a href="#">日本</a>
+						</dd>
+					</dl>		-->
+			</div>
+		</div>
+	<!-------------16国特品--------------------->
+	<div class="features center">
+			<div class="htitle clearfix">
+				<div class="title-h fl">
+					<h3>16国特品</h3>
+					<span>|</span>
+					<span>精选全球16国特色好物</span>
+				</div>
+				<div class="wordlink fr">
+					<a href="#">锅具</a><span>/</span><a href="#">希腊海绵 </a><span>/</span><a href="#">意大利菠萝</a><span>/</span><a href="#">那么</a> 
+					<span class="rspace"></span>
+					<a href="#" class="fr">查看更多&gt;</a>
+				</div>
+			</div>
+			<div class="fea-banner">
+				<img src="img/pic/italybanner.jpeg" />
+			</div>
+			<div class="product-list coffee clearfix">
+			</div>
+	</div>
+	<!-------------------重复版块不做了----------------->
+	<!---------------------大家都在说-------------------->
+	<div class="said-bg">
+			<div class="all-said center">
+				<div class="htitle clearfix">
+					<div class="title-h fl">
+						<h3>大家都在说</h3>
+					</div>
+					<div class="change-btn fr">
+						<button class="left-btn"></button>
+						<button class="right-btn"></button>
+					</div>
+				</div>	
+				<div class="said-container clearfix">
+					<!-------------版块---------------->
+					<a class="clicka" href="#">
+						<dl>
+							<ins class="hot"><img src="img/pic/hot_icon.png"/></ins>
+							<dt class="said-images">
+								<img src="img/pic/said_1.jpg" />
+							</dt>
+							<dd>	
+								<p>德国原产OBB Schwarzwald系列 鹅绒被原产O原产O<p>
+							</dd>
+							<dd>
+								<var class="money">33.55</var>
+							</dd>
+							<dd class="user-information">
+								<span class="userhead">
+									<img src="img/pic/heads.png" />
+								</span>
+								<span class="username">y***0</span>
+								<time>2017-08-09 17:29</time>
+							</dd>
+							<dd>
+								<p class="three-line">在德国留学时就用过这个牌子的鹅绒被，但是回国后就没怎么看到，现在能在这里买到在，现在能在这里买到，但是回国后就没怎么看到，现在能在这里买到在</p>
+							</dd>
+						</dl>
+					</a>
+					<!-------------版块结束---------------->
+					<a class="clicka" href="#">
+						<dl>
+							<ins class="hot"><img src="img/pic/newp_icon.png"/></ins>
+							<dt class="said-images">
+								<img src="img/pic/said_1.jpg" />
+							</dt>
+							<dd>	
+								<p>德国原产OBB Schwarzwald系列 鹅绒被原产O原产O<p>
+							</dd>
+							<dd>
+								<var class="money">33.55</var>
+							</dd>
+							<dd class="user-information">
+								<span class="userhead">
+									<img src="img/pic/heads.png" />
+								</span>
+								<span class="username">y***0</span>
+								<time>2017-08-09 17:29</time>
+							</dd>
+							<dd>
+								<p class="three-line">在德国留学时就用过这个牌子的鹅绒被，德国留学时就用过这个牌子的鹅但是回国后就没怎么看到，现在能在这里买到在，现在能在这里买到</p>
+							</dd>
+						</dl>
+					</a>
+					<!-------------版块结束---------------->
+					<a class="clicka" href="#">
+						<dl>
+							<dt class="said-images">
+								<img src="img/pic/said_1.jpg" />
+							</dt>
+							<dd>	
+								<p>德国原产OBB Schwarzwald系列 鹅绒被原产O原产O<p>
+							</dd>
+							<dd>
+								<var class="money">33.55</var>
+							</dd>
+							<dd class="user-information">
+								<span class="userhead">
+									<img src="img/pic/heads.png" />
+								</span>
+								<span class="username">y***0</span>
+								<time>2017-08-09 17:29</time>
+							</dd>
+							<dd>
+								<p class="three-line">在德国留学时就用过这个牌子牌子的鹅，但是回国后就没怎么看到，现在能在这里买到在，现在能在这里买到</p>
+							</dd>
+						</dl>
+					</a>
+					<!-------------版块结束---------------->
+					<a class="clicka" href="#">
+						<dl>
+							<ins class="hot"><img src="img/pic/hot_icon.png"/></ins>
+							<dt class="said-images">
+								<img src="img/pic/said_1.jpg" />
+							</dt>
+							<dd>	
+								<p>德国原产OBB Schwarzwald系列 鹅绒被原产O原产O<p>
+							</dd>
+							<dd>
+								<var class="money">33.55</var>
+							</dd>
+							<dd class="user-information">
+								<span class="userhead">
+									<img src="img/pic/heads.png" />
+								</span>
+								<span class="username">y***0</span>
+								<time>2017-08-09 17:29</time>
+							</dd>
+							<dd>
+								<p class="three-line">现在能在这里买到</p>
+							</dd>
+						</dl>
+					</a>
+					<!-------------版块结束---------------->
+			</div>
+		</div>	
+	</div>	
+	<!-------------热门厂店---------------->
+	<div class="hot-store center clearfix">
+		<div class="htitle clearfix">
+				<div class="title-h fl">
+					<h3>热门厂店</h3>
+				</div>
+				<div class="wordlink fr">
+					<a href="#" class="fr">查看更多&gt;</a>
+				</div>
+			</div>
+			<!-------------4个版块---------------->
+			<div class="store-show">
+				<div class="store-img">
+					<img src="img/pic/store_img1.jpg" />
+				</div>
+				<ul class="store-commodity clearfix">
+					<li><a href="#"><img src="img/pic/shop_img1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img2.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img2.jpg" alt="" /></a></li>
+				</ul>
+			</div>
+			<div class="store-show">
+				<div class="store-img">
+					<img src="img/pic/store_img1.jpg" />
+				</div>
+				<ul class="store-commodity clearfix">
+					<li><a href="#"><img src="img/pic/shop_img1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img2.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img2.jpg" alt="" /></a></li>
+				</ul>
+			</div>
+			<div class="store-show">
+				<div class="store-img">
+					<img src="img/pic/store_img1.jpg" />
+				</div>
+				<ul class="store-commodity clearfix">
+					<li><a href="#"><img src="img/pic/shop_img1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img2.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="img/pic/shop_img2.jpg" alt="" /></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--------按国家分类------------>
+		<div class="countrys center clearfix">
+			<div class="state">
+				<dl>
+					<dt>
+						<img src="img/pic/itt.jpg" />
+					</dt>
+					<dd>
+						<img src="img/pic/itt-hover.png" />
+					</dd>
+					<p>意大利</p>
+				</dl>
+			</div>
+		</div>
+
+		<!----------底部公共部分----------->
+		<div class="service-icon">
+			<div class="serviceinner center clearfix">
+				<a href="#" class="serve-container">
+					<div class="serveicon seaout">
+					</div>
+					<p>海外进口</p>
+					<span>美国厂家直采</span>
+				</a>
+				<a href="#" class="serve-container">
+					<div class="serveicon seaout">
+					</div>
+					<p>海外进口</p>
+					<span>美国厂家直采</span>
+				</a>
+				<a href="#" class="serve-container">
+					<div class="serveicon seaout">
+					</div>
+					<p>海外进口</p>
+					<span>美国厂家直采</span>
+				</a>
+				<a href="#" class="serve-container">
+					<div class="serveicon seaout">
+					</div>
+					<p>海外进口</p>
+					<span>美国厂家直采</span>
+				</a>
+			</div>
+		</div>
+		<!-----备案号&友情链接------>
+		<div class="ft-main">
+			<div class="ft-inner center">
+				<div class="ft-help clearfix">
+					<ul class="ft-help-item">
+						<li>
+							<span>购物指南</span>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+						<li>
+							<a href="#">购物流程</a>
+						</li>
+						<li>
+							<a href="#">跨境购须知</a>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+					</ul>
+					<ul class="ft-help-item">
+						<li>
+							<span>购物指南</span>
+						</li>
+						<li>
+							<a href="#">跨境购须知</a>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+					</ul>
+					<ul class="ft-help-item">
+						<li>
+							<span>购物指南</span>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+						<li>
+							<a href="#">购物流程</a>
+						</li>
+						<li>
+							<a href="#">跨境购须知</a>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+					</ul>
+					<ul class="ft-help-item">
+						<li>
+							<span>购物指南</span>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+						<li>
+							<a href="#">购物流程</a>
+						</li>
+						<li>
+							<a href="#">跨境购须知</a>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+					</ul>
+					<!--------二维码---->
+					<div class="qrcode">
+						<dl>
+							<dt><img src="img/pic/QRcode.png"/></dt>
+							<dd>手机逛喜地</dd>
+						</dl>
+						<dl>
+							<dt><img src="img/pic/QRcode.png"/></dt>
+							<dd>关注喜地微信账号</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="ft-about clearfix">
+					<div class="ft-logo-info">
+						<div class="ft-logo">				
+						</div>
+						<a>&copy;2017 喜地电子商务有限公司 版权所有</a>
+					</div>
+					<div class="ft-about-info">
+						<a class="beian" href="#">沪公网安备 31011502004484号</a>
+						<a>沪ICP备14024930号</a>
+						<a href="#">了解喜地 </a>
+						<span>|</span>
+						<a href="#">加入喜地</a>
+						<span>|</span>
+						<a href="#">法律声明</a>
+						<span>|</span>
+						<a href="#">联系喜地</a>
+						<a class="phone">021-38473528</a>
+						<a>增值电信业务经营许可证：沪B2-20160</a>
+						<span>|</span>
+						<a>食品流通许可证：SP3101151414200025</a>
+						<span>|</span>
+						<a>网络文化经营许可证：沪网文【2014】0579-129号</a>
+					</div>
+				</div>
+				<div class="ft-links clearfix">
+					<span class="fl">友情链接：</span>
+					<div class="frlinks fr">
+						<a href="#">喜地官网</a>
+						<a href="#">八达网转运</a>
+						<a href="#">香港百分乐购</a>
+						<a href="#">家居饰品批发</a>
+						<a href="#">喜地官网</a>
+						<a href="#">喜地官网</a>
+						<a href="#">喜地官网</a>
+						<a href="#">返利</a>
+						<a href="#">喜地官网</a>
+						<a href="#">家居饰品批发</a>
+						<a href="#">喜地官网</a>
+					</div>
+					<div class="frlinks fr">
+						<a href="#">喜地官网</a>
+						<a href="#">八达网转运</a>
+						<a href="#">香港百分乐购</a>
+						<a href="#">家居饰品批发</a>
+						<a href="#">喜地官网</a>
+						<a href="#">喜地官网</a>
+						<a href="#">喜地官网</a>
+						<a href="#">返利</a>
+						<a href="#">喜地官网</a>
+						<a href="#">家居饰品批发</a>
+						<a href="#">喜地官网</a>
+					</div>
+					<div class="frlinks fr">
+						<a href="#">喜地官网</a>
+						<a href="#">八达网转运</a>
+						<a href="#">香港百分乐购</a>
+						<a href="#">家居饰品批发</a>
+						<a href="#">喜地官网</a>
+						<a href="#">喜地官网</a>
+						<a href="#">喜地官网</a>
+						<a href="#">返利</a>
+						<a href="#">喜地官网</a>
+						<a href="#">家居饰品批发</a>
+						<a href="#">喜地官网</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
