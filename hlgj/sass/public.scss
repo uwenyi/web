@@ -1,0 +1,452 @@
+@charset "utf-8";
+/*
+ * 定义公共组件和全局公共变量
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+//定义的公共变量
+$_publicCursor : pointer default not-allowed move text row-resize;
+$_publicColor : #fff #333 #666 #999 #ccc #1182c5 #323940 #ddd #42d28f #41c0f1 #eb7b59 #885df4 #f47c08 #2ecd83 #2cb9ef #eee #c41f25 #565656 #d5d5d5 #39cd85 #0b9552 #f3f7fc #3da7e6 #8f8f8f #885ef0 #e97a5d #48c1ef #77c4d3 #56486c #56b7a4 #f3ba6d #000 #929090 #d6d6d6 #ececec #bababa #e8f5fb #d3ecf7 #56486b #fcfcfc #c8e7d9 #c7e3ee #f7f7f7 #c6d1dd #7fce7f #9d84f1 #eca17f #ecf5fa #ff0000 #99ccff #e0ebfd #288ecb #ff9900 #41cd87 #e7edf5 #f1faff #f1ffef #35bd23 #fff4e9 #ff9933 #48576a #bfcbd9 #31b9b8;
+$_publicData : none auto normal 0 5% 10% 20% 25% 33.33% 50% 75% 80% 90% 100% 1px 2px 3px 4px 5px 6px 8px 10px 12px 13px 14px 15px 16px 18px 20px 21px 24px 25px 28px 30px 35px 36px 38px 40px 44px 45px 48px 50px 70px;
+$_publicBorderstyle :solid dashed dotted;
+$_publicVerticalalign : sub super text-top text-bottom baseline;
+$_publicShow : hidden visible block inline-block inline;
+$_browser : -o- -ms- -moz- -khtml- -webkit-;
+$_boxsize : box-sizing;
+$_bordbox : border-box;
+$_tran : transition;
+$_transform : transform;
+$_rel : relative; 
+$_absol : absolute; 
+$_fixed : fixed; 
+$_lf : left;
+$_rg : right;
+$_tp : top;
+$_bt : bottom;
+$_md : middle;
+$_ct : center;
+//20171027
+$_device:320px 991px;
+//数值计算(乘)
+@function countnumC($num1,$num2) {
+    @return $num1 * $num2;
+}
+//数值计算(加)
+@function countnumAdd($num1,$num2) {
+    @return $num1 + $num2;
+}
+//数值计算(减)
+@function countnumPlus($num1,$num2) {
+    @return $num1 - $num2;
+}
+//透明度
+@mixin jsx-filter($val,$val2) {
+   filter:alpha(opacity=$val);
+   @each $brow in $_browser{
+      #{$brow}opacity: $val2;
+   }
+   opacity: $val2;
+}
+//媒体查询
+@mixin jsx-media($val,$val2){
+   @media screen and (min-width:$val) and (max-width:$val2) {
+       @content;
+   }
+}
+//动画示例1--flipinx动画
+@mixin jsx-flipinx($deg) {
+   @each $brow in $_browser{
+      #{$brow}#{$_transform}: perspective(400px) rotate3d(1,0,0,$deg);
+   }
+   #{$_transform}: perspective(400px) rotate3d(1,0,0,$deg);
+}
+
+//创建transition动画
+@mixin jsx-transtion($name, $time, $style:ease-in-out, $delay:0s){
+   @if ($name==none)&&($time==none) {
+       @each $brow in $_browser{
+          #{$brow}#{$_tran}: $name;
+       }
+       #{$_tran}: $name;
+   }@else{
+       @each $brow in $_browser{
+          #{$brow}#{$_tran}: $name $time $style $delay;
+       }
+       #{$_tran}: $name $time $style $delay;
+   }
+   
+}
+
+//创建animate动画
+@mixin jsx-animate($animatename) {
+   @-webkit-keyframes #{$animatename}
+    {
+      @content;
+    }
+   @keyframes #{$animatename}
+    {
+      @content;
+    }
+}
+
+//头部导航flipinx动画
+@include jsx-animate(flipinx){
+  0% {
+       @include jsx-flipinx(90deg);
+       -webkit-transition-timing-function:ease-in;
+       transition-timing-function:ease-in;
+       opacity:0;
+     }
+  40%{
+      @include jsx-flipinx(-20deg);
+      -webkit-transition-timing-function:ease-in;
+      transition-timing-function:ease-in;
+    }
+  60%{
+      @include jsx-flipinx(10deg);
+      opacity:1;
+    }
+  80%{
+       @include jsx-flipinx(-5deg);
+    }
+  100%{
+       @include jsx-flipinx(0deg);
+    }
+}
+
+//通用组件样式
+//结构容器
+.jsx-wrapcontent{
+  @extend %boxsizing;
+  margin:nth($_publicData,4) nth($_publicData,2);
+  width: 75%; 
+}
+//浮动
+.jsx-float-l{ 
+    float: $_lf;
+}
+.jsx-float-r{ 
+  float: $_rg; 
+}
+//清除浮动
+.jsx-clearfloat{
+   zoom:1;
+   &::after{
+     display:nth($_publicShow,3); 
+     clear:both; 
+     content:""; 
+     visibility:nth($_publicShow,1);
+     height:nth($_publicData,4);
+   }
+}
+//弹窗容器
+.jsx-winpop{
+    display: nth($_publicData, 1);
+} 
+//box-sizing
+%boxsizing{
+  @each $brow in $_browser{
+    #{$brow}#{$_boxsize}: $_bordbox;
+  }
+  #{$_boxsize}: $_bordbox;
+}
+@mixin boxsizing {
+   @each $brow in $_browser{
+    #{$brow}#{$_boxsize}: $_bordbox;
+  }
+  #{$_boxsize}: $_bordbox;
+}
+//模块标题
+.jsx-subtitle{
+   width: nth($_publicData, 14);
+   text-align: $_ct;
+   font-size: nth($_publicData, 36);
+   margin:nth($_publicData, 4) nth($_publicData, 2) nth($_publicData, 41);
+   line-height: nth($_publicData, 39);
+   color: nth($_publicColor, 32);
+}
+//20171026
+@include jsx-media(320px,991px){
+    .jsx-subtitle{
+       font-size: 0.3rem;
+       margin:nth($_publicData, 4) nth($_publicData, 2) 0.22rem;
+       line-height: 0.3rem;
+       font-weight: bold;
+    }
+}
+//内页banner
+%subbanner{
+   margin:nth($_publicData, 4) nth($_publicData, 2) nth($_publicData, 42);
+}
+//无背景按钮
+%publicbtn{
+   display: nth($_publicShow, 3);
+   width: 158px;
+   height: nth($_publicData, 41);
+   line-height: nth($_publicData, 41);
+   border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 1);
+   border-radius: nth($_publicData, 20);
+   text-align:$_ct;
+   cursor: nth($_publicCursor, 1);
+   color: nth($_publicColor, 1);
+   background:nth($_publicData, 1);
+   &.jsx-disabled,&.jsx-disabled:hover{
+     cursor: nth($_publicCursor, 3);
+     background:nth($_publicColor, 5);
+     color: nth($_publicColor, 3);
+     border-color:nth($_publicColor, 5);
+   }
+   &:hover{
+      background:nth($_publicColor, 53);
+      border-color:nth($_publicColor, 53);
+   }
+}
+//蓝色背景按钮
+%publicbtn-blue{
+   display: nth($_publicShow, 3);
+   padding: nth($_publicData, 4) nth($_publicData, 29);
+   height: nth($_publicData, 41);
+   line-height: nth($_publicData, 41);
+   border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 6);
+   border-radius: nth($_publicData, 20);
+   cursor: nth($_publicCursor, 1);
+   text-align:$_ct;
+   color: nth($_publicColor, 1);
+   background: nth($_publicColor, 6);
+   font-size: nth($_publicData, 28);
+   &.jsx-disabled,&.jsx-disabled:hover{
+     cursor: nth($_publicCursor, 3);
+     background:nth($_publicColor, 5);
+     color: nth($_publicColor, 3);
+     @include jsx-filter(100,1);
+   }
+   &:hover{
+      @include jsx-filter(90,.9);
+   }
+}
+//黄色背景按钮
+%publicbtn-yellow{
+  @extend %publicbtn-blue;
+  background:nth($_publicColor, 53);
+}
+//白色背景按钮
+%publicbtn-white{
+  @extend %publicbtn-blue;
+  background:nth($_publicColor, 1);
+  color:nth($_publicColor, 32);
+  border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 44);
+}
+
+//输入框、下拉框公共基础样式
+%formpublic{
+   width: nth($_publicData, 14);
+   height: nth($_publicData, 42);
+   line-height: nth($_publicData, 42);
+   padding:nth($_publicData, 22) nth($_publicData, 28);
+   border-radius:nth($_publicData, 20);
+   background:nth($_publicColor, 1);
+   font-size: nth($_publicData, 27);
+}
+//input输入框
+%inputs{
+   @extend %formpublic;
+   @extend %boxsizing;
+   @include jsx-transtion(all, 1s);
+   &.word-2{
+       padding-#{$_lf}:countnumAdd(nth($_publicData, 42),10);
+   }
+   &.word-4{
+       padding-#{$_lf}:countnumC(nth($_publicData, 40),2);
+   }
+   &:focus{
+       border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 6);
+       box-shadow:nth($_publicData, 4) nth($_publicData, 4) nth($_publicData, 22) rgba(0,0,0,.25);
+   }
+}
+//下拉框
+%selects{
+   @extend %formpublic;
+   @extend %boxsizing;
+   position: $_rel;
+   cursor: nth($_publicCursor, 1);
+   .fa{
+      position:$_absol;
+      #{$_rg}:nth($_publicData, 28);
+      #{$_tp}:nth($_publicData, 25);
+      color: nth($_publicColor, 33);
+      font-size: nth($_publicData, 31);
+   }
+   em{
+      display:nth($_publicShow, 3);
+      margin-#{$_tp}:countnumC(nth($_publicData, 21), -1); 
+      overflow: nth($_publicShow, 1);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+   }
+   &:hover{
+      .fa{
+         color: nth($_publicColor, 2);
+      }
+   }
+   &.jsx-active{
+      .fa{
+         color: nth($_publicColor, 2);
+      }
+      border-#{$_bt}-#{$_lf}-radius:nth($_publicData, 4);
+      border-#{$_bt}-#{$_rg}-radius:nth($_publicData, 4);
+   }
+}
+
+//下拉列表
+%select-options{
+   display: nth($_publicData, 1);
+   position:$_absol;
+   #{$_tp}:nth($_publicData, 42);
+   #{$_lf}:nth($_publicData, 4);
+   #{$_rg}:nth($_publicData, 4);
+   z-index: 99;
+   border-#{$_tp}:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 34); 
+   background:nth($_publicColor, 1);
+   border-#{$_bt}-#{$_lf}-radius:nth($_publicData, 20);
+   border-#{$_bt}-#{$_rg}-radius:nth($_publicData, 20);
+   //选项
+   dd{
+      height: nth($_publicData, 42);
+      padding:nth($_publicData, 4) nth($_publicData, 28);
+      font-size: nth($_publicData, 27);
+      line-height: nth($_publicData, 42);
+      overflow:nth($_publicShow, 1);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @extend %boxsizing;
+      @include jsx-transtion(all, .5s);
+      //鼠标悬浮
+      &:hover{
+         cursor: nth($_publicCursor, 1);
+         background:nth($_publicColor, 35);
+      }
+      //选中后
+      &.selected{
+         color: nth($_publicColor, 5);
+         cursor: nth($_publicCursor, 3);
+         background:nth($_publicColor, 16);
+         position:$_rel;
+         &::after{
+            content: '√';
+            font-size: nth($_publicData, 28);
+            font-weight: bold;
+            color: nth($_publicColor, 5);
+            position:$_absol;
+            #{$_rg}:nth($_publicData, 28);
+            #{$_tp}:nth($_publicData, 4);
+         }
+         //选中后鼠标悬浮
+         &:hover{
+            color: nth($_publicColor, 5);
+            background:nth($_publicColor, 16);
+         }
+      }
+   }
+   //下拉框被激活
+   &.jsx-active{
+      display: nth($_publicShow, 3);
+   }
+}
+//absolute定位，上下左右0
+%absolute0{
+   position:$_absol;
+   #{$_tp}:nth($_publicData, 4);
+   #{$_bt}:nth($_publicData, 4);
+   #{$_lf}:nth($_publicData, 4);
+   #{$_rg}:nth($_publicData, 4);
+}
+//fixed定位，上下左右0
+%fixed0{
+   position:$_fixed;
+   #{$_tp}:nth($_publicData, 4);
+   #{$_bt}:nth($_publicData, 4);
+   #{$_lf}:nth($_publicData, 4);
+   #{$_rg}:nth($_publicData, 4);
+}
+//行前带“·”的文字
+%texttypestyle{
+   &::before{
+      content: '·';
+      margin-#{$_rg}: nth($_publicData, 21);
+      font-size: nth($_publicData, 28);
+      font-weight: bold
+   }
+}
+//返回顶部
+.jsx-BackTotop{
+   position:$_fixed;
+   #{$_rg}:nth($_publicData, 4);
+   #{$_bt}:nth($_publicData, 38);
+   z-index: 888;
+   display: nth($_publicData, 1);
+   cursor: nth($_publicCursor, 1);
+   width: countnumPlus(nth($_publicData, 5), 1%);
+   max-width: nth($_publicData, 42);
+   background:rgba(0,0,0, .3);
+   border-radius:nth($_publicData, 10);
+   &:hover{
+      @include jsx-filter(90,.9);
+   }
+}
+//在线留言悬浮框
+.jsx-commentsbox{
+    position:$_fixed;
+    #{$_rg}:nth($_publicData, 19);
+    #{$_tp}:nth($_publicData, 8);
+    z-index: 888;
+    width: nth($_publicData, 6);
+    max-width:161px;
+    > .fa{
+       position: $_absol;
+       #{$_rg}:nth($_publicData, 28);
+       #{$_tp}:nth($_publicData, 26);
+       color: nth($_publicColor, 1);
+       font-size: countnumPlus(nth($_publicData, 31), 1);
+       cursor: nth($_publicCursor, 1);
+       &:hover{
+          @include jsx-filter(90,.9);
+       }
+    }
+    .abtn{
+       position: $_absol;
+       #{$_tp}:countnumAdd(nth($_publicData, 8),5%);
+       #{$_lf}:nth($_publicData, 4);
+       background:nth($_publicColor, 63);
+       width: nth($_publicData, 12);
+       margin: nth($_publicData, 4) nth($_publicData, 6);
+       padding:countnumPlus(nth($_publicData, 22), 1);
+       color: nth($_publicColor, 1);
+       text-align: $_ct;
+       font-size: nth($_publicData, 27);
+       border-radius:nth($_publicData, 20);
+       cursor: nth($_publicCursor, 1);
+       .fa{
+          margin-#{$_lf}:nth($_publicData, 21);  
+       }
+       &:hover{
+          background:darken(nth($_publicColor, 63), nth($_publicData, 7));
+       }
+    }
+}
+//20171028
+@include jsx-media(nth($_device,1),nth($_device,2)){
+    //返回顶部
+    .jsx-BackTotop{
+       #{$_rg}:0.2rem;
+       #{$_bt}:0.8rem;
+       width: 10%;
+    }
+    //在线留言悬浮框
+    .jsx-commentsbox{
+        display: none;
+    }
+}
+
+
+
+

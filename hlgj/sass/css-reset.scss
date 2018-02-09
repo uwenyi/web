@@ -1,0 +1,118 @@
+@charset "utf-8";
+/*
+ * 基础样式重置
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+*{ 
+   margin: nth($_publicData, 4);
+   padding:nth($_publicData, 4);
+   word-wrap:break-word;
+   &:focus{
+ 	   outline: nth($_publicData, 1);
+   }
+}
+
+:focus,a,area{
+    outline: nth($_publicData, 1);
+}
+
+body,html,td,th,h1,h2,h3,h4,h5,h6,hr,p,iframe,dt,dd,pre,form,button,input,textarea,map,fieldset,ul,ol,dl,li{
+	margin:nth($_publicData, 4);
+  padding: nth($_publicData, 4);
+	border: nth($_publicData,4);
+}
+
+ul,ol,dl,li{
+    list-style-type:nth($_publicData,1);
+}
+
+body{
+	@extend %boxsizing;
+	width: nth($_publicData,14);
+	font-size: nth($_publicData, 25);
+	color:nth($_publicColor, 2); 
+	font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei";
+  background: nth($_publicColor, 1);
+    overflow-x: nth($_publicShow,1);
+}
+
+html{
+   -webkit-text-size-adjust:nth($_publicData,14); 
+   -ms-text-size-adjust:nth($_publicData,14);	
+}
+
+td,th,button,input,select,textarea,option{
+ 	-webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing:grayscale;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-size:nth($_publicData,14);
+}
+
+td,th,button,input,select,textarea,option,i,em,address,caption,cite,code,dfn,var{ 
+	font-style:nth($_publicData,3);
+}
+
+input,button,textarea,select,optgroup,option{
+	font-family:inherit;
+	font:inherit;
+}
+
+input,select,textarea,optgroup,option{
+	background:nth($_publicData,1);
+}
+
+input,button{
+	outline:nth($_publicData,1);;
+	overflow: nth($_publicShow, 2);
+}
+
+input{
+   height: nth($_publicData, 34);
+   border: nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 5);
+   line-height: nth($_publicData, 34);
+   border-radius: nth($_publicData, 18);
+   color: nth($_publicColor, 3);
+   padding: nth($_publicData, 4) nth($_publicData, 19);
+}
+
+button{
+	border: nth($_publicData,1);
+}
+
+input[type="search"]{ 
+	-webkit-appearance:nth($_publicData,1); 
+}
+
+a,area{ 
+	blr:expression(this.onFocus=this.blur())
+}
+
+a{
+   text-decoration: nth($_publicData,1); 
+   cursor: nth($_publicCursor,1);
+   &:hover{
+      @include jsx-filter(90,.9);
+   }
+   &:active,&:hover,&:link{
+   	  outline:nth($_publicData,1);
+   }
+   img{
+   	  -ms-interpolation-mode:bicubic;
+   }
+}
+
+sub,sup{ 
+	vertical-align:nth($_publicVerticalalign, 5);
+}
+
+img{ 
+   border:nth($_publicData,4); 
+   width: nth($_publicData,14); 
+   vertical-align:$_md; 
+   height: nth($_publicData,2);
+   -ms-interpolation-mode:bicubic;
+}
+

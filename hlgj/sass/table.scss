@@ -1,0 +1,41 @@
+@charset "utf-8";
+/*
+ * 表格模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+table{
+   width: nth($_publicData, 14);
+   border: nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 44);
+   border-collapse:collapse;
+   td,th{
+       height: nth($_publicData, 41);
+       padding:nth($_publicData, 4) nth($_publicData, 27);
+       border-#{$_rg}: nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 44);
+       border-#{$_bt}: nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 44);
+   }
+   tr{
+      td:nth-last-child,th:nth-last-child{
+          border-#{$_rg}:nth($_publicData, 1);
+      }
+      &:nth-last-child{
+         td,th{
+             border-#{$_bt}: nth($_publicData, 1);
+         }
+      }
+      &:nth-child(even){
+         background:nth($_publicColor, 48);
+      }
+      &:hover{
+         background:nth($_publicColor, 40);
+         cursor: nth($_publicCursor, 2);
+      }
+   }
+   thead{
+      background:nth($_publicColor, 6);
+      color: nth($_publicColor, 1);
+      tr:hover{
+         background:nth($_publicColor, 6);
+      }
+   }
+}

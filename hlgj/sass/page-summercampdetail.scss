@@ -1,0 +1,143 @@
+@charset "utf-8";
+/*
+ * 主题夏/冬令营详情样式
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+@import "public";
+@import "css-reset";
+@import "mediascreen";
+@import "header";
+@import "footer";
+@import "banner";
+@import "themecamp";
+@import "camptype";
+@import "stepstyle";
+@import "form";
+@import "bombbox";
+
+//我们的一天
+.jsx-campday{
+	@extend %stepstyle;
+	padding:countnumC(nth($_publicData, 26), 4) nth($_publicData, 4) nth($_publicData, 34);
+	.applytime-ul{
+        li{
+		    margin:nth($_publicData, 4) nth($_publicData, 4) countnumC(nth($_publicData, 42), 2);
+		    width: nth($_publicData, 8);
+		    border-#{$_tp}:countnumAdd(nth($_publicData, 22), 1) nth($_publicBorderstyle, 1) nth($_publicColor, 55);
+		    .contentbox{
+		    	 margin-#{$_rg}:nth($_publicData, 38);
+		    	 margin-#{$_lf}:nth($_publicData, 38);
+		    	 text-align: $_ct;
+		    }
+		    .fa{
+		    	color: nth($_publicColor, 55);
+		    	position:$_absol;
+		    	#{$_tp}:countnumC(nth($_publicData, 34), -1);
+		    	#{$_rg}:countnumC(nth($_publicData, 22), -1);
+		    	font-size: nth($_publicData, 41);
+		    }
+		    //箭头
+	        &::after{
+	            content: '';
+	            position:$_absol;
+	            display: nth($_publicShow, 3);
+	            background-size:contain;
+	        }
+	       //向右箭头
+	       &.right::after{
+	            background:url(../images/flowright_icon.png) $_ct no-repeat;
+	            width: countnumAdd(nth($_publicData, 34), 2);
+	            height: nth($_publicData, 33);
+	            #{$_tp}:nth($_publicData, 10);
+	            #{$_rg}:countnumC(nth($_publicData, 28), -1);
+	            margin-#{$_tp}:nth($_publicData, 4); 
+	        }
+	        //向左箭头
+	        &.left::after{
+	            background:url(../images/flowleft_icon.png) $_ct no-repeat;
+	            width: countnumAdd(nth($_publicData, 34), 2);
+	            height: nth($_publicData, 33);
+	            #{$_tp}:nth($_publicData, 10);
+	            #{$_lf}:countnumC(nth($_publicData, 28), -1);
+	            margin-#{$_tp}:nth($_publicData, 4); 
+	        }
+	        //向下箭头
+	        &.down::after{
+	            background:url(../images/flowdown_icon.png) $_ct no-repeat;
+	            width: nth($_publicData, 33);
+	            height: countnumAdd(nth($_publicData, 34), 2);
+	            #{$_lf}:nth($_publicData, 10);
+	            #{$_bt}:-46px;
+	            margin-#{$_lf}:countnumC(nth($_publicData, 25), -1); 
+	        }
+	    }
+	    &:nth-of-type(odd){
+	    	border-#{$_rg}:countnumAdd(nth($_publicData, 22), 1) nth($_publicBorderstyle, 1) nth($_publicColor, 55);
+	    }
+	    &:nth-of-type(even){
+	    	border-#{$_lf}:countnumAdd(nth($_publicData, 22), 1) nth($_publicBorderstyle, 1) nth($_publicColor, 55);
+	    	.contentbox{
+		    	 margin-#{$_rg}:nth($_publicData, 38);
+		    	 margin-#{$_lf}:nth($_publicData, 38);
+		    }
+	    }
+	    &:last-of-type{
+	    	border:nth($_publicData, 1);
+	    	margin-#{$_tp}:nth($_publicData, 4);
+	    }      
+	}
+}
+
+//项目内容
+.jsx-campitems{
+	padding-#{$_bt}:nth($_publicData, 42);
+	li{
+		width: nth($_publicData,9);
+		text-align:$_ct;
+		background:nth($_publicColor, 56);
+		box-shadow:nth($_publicData, 4) nth($_publicData, 4) nth($_publicData, 43) rgba(0,0,0, .2);
+		position: $_rel;
+		.pannel-title{
+			color: nth($_publicColor, 1);
+			font-size: nth($_publicData, 27);
+			height: nth($_publicData, 42);
+			line-height: nth($_publicData, 42);
+			background:nth($_publicColor, 6);
+			position: $_rel;
+			.fa{
+				color: nth($_publicColor, 6);
+				position:$_absol;
+				#{$_lf}:nth($_publicData, 10);
+				#{$_bt}:countnumC(nth($_publicData, 28), -1);
+				margin-#{$_lf}:countnumC(nth($_publicData, 23), -1); 
+			}
+		}
+		&:nth-of-type(2){
+		   background: nth($_publicColor, 57);   
+		   .pannel-title{
+		   	   background:nth($_publicColor, 58);
+		   	   .fa{
+		   	   	  color: nth($_publicColor, 58);
+		   	   }
+		   }
+		}
+		&:nth-of-type(3){
+		   background: nth($_publicColor, 59);   
+		   .pannel-title{
+		   	   background:nth($_publicColor, 60);
+		   	   .fa{
+		   	   	  color: nth($_publicColor, 60);
+		   	   }
+		   }
+		}
+		.pannel-wrap{
+			padding:nth($_publicData, 36) nth($_publicData, 4);
+			min-height: countnumC(nth($_publicData, 43), 9);
+			p{
+				line-height: nth($_publicData, 33);
+			}
+		}
+	}
+}
+

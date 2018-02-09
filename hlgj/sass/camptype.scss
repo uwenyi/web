@@ -1,0 +1,62 @@
+@charset "utf-8";
+/*
+ * 夏令营类型模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+.jsx-camptype{
+   padding:nth($_publicData, 42) nth($_publicData, 4);
+   .camptypeimg{
+      width: countnumPlus(nth($_publicData, 10),nth($_publicData, 6));
+      position:$_rel;
+      .camptypebtn{
+         @extend %jsx-btnarray;
+      }
+   }
+   .camptypecont{
+      width: countnumAdd(nth($_publicData, 10),nth($_publicData, 6));
+      padding-#{$_lf}:countnumAdd(nth($_publicData, 43), 10);
+      @extend %boxsizing;
+      h3{
+         color: nth($_publicColor, 6);
+         font-size: nth($_publicData, 31);
+         font-weight: nth($_publicData, 3);
+         a{
+            color: nth($_publicColor, 6);
+            &:hover{
+               text-decoration: underline;
+            }
+         }
+      }
+      em{
+         color: nth($_publicColor, 3);
+         display: nth($_publicShow, 3);
+         line-height: nth($_publicData, 38);
+      }
+      .contsection{
+         margin-#{$_tp}:nth($_publicData, 32);
+         line-height: nth($_publicData, 32);
+         a{
+               color: nth($_publicColor, 2);
+               &:hover{
+                  color: nth($_publicColor, 6);
+                  text-decoration: underline;
+               }
+         }
+         dt{
+            &::before{
+               content: '-';
+               margin-#{$_rg}:nth($_publicData, 31);
+               font-size: nth($_publicData, 28);
+            }
+         }
+         dd{
+            margin-#{$_lf}:nth($_publicData, 38);
+            @extend %texttypestyle;
+            &:before{
+               margin-#{$_rg}:nth($_publicData, 31);
+            }
+         }
+      }
+   }
+}

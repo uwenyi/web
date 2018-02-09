@@ -1,0 +1,229 @@
+@charset "utf-8";
+/*
+ * 美国房地产投资样式
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+@import "public";
+@import "css-reset";
+@import "mediascreen";
+@import "header";
+@import "footer";
+@import "banner";
+@import "table";
+@import "form";
+@import "bombbox";
+
+//行居中
+.jsx-publicdiv{
+	text-align:$_ct;
+	margin:nth($_publicData, 29) nth($_publicData, 2);
+	> em{
+		color:nth($_publicColor, 49);
+		margin-#{$_rg}:nth($_publicData, 20); 
+	}
+}
+
+//头部房地产介绍
+.jsx-instroction{
+	text-align:$_ct;
+	padding:nth($_publicData, 43) nth($_publicData, 4) countnumC(nth($_publicData, 42),2);
+	//图片
+	.img-skew{
+		margin:nth($_publicData, 41) nth($_publicData, 2) nth($_publicData, 43);
+		li{
+			margin-#{$_bt}:nth($_publicData, 34);
+			.imgs{
+				width: nth($_publicData, 9);
+				padding:nth($_publicData, 4) nth($_publicData, 26);
+				@extend %boxsizing;
+				margin:nth($_publicData, 4) nth($_publicData, 2);
+			}
+		}
+	}
+	//文字、按钮
+	h3{
+		color: nth($_publicColor, 6);
+		font-size: nth($_publicData, 31);
+		font-weight: nth($_publicData, 3);
+	}
+	.abtn{
+		margin:nth($_publicData, 42) nth($_publicData, 2) nth($_publicData, 37);
+		width: countnumC(nth($_publicData, 38), 6);
+		@extend %publicbtn-blue;
+	}
+	em{
+		color: nth($_publicColor, 3);
+	}
+}
+
+//美国购房流程
+.jsx-purchaseflow{
+	padding-#{$_bt}:nth($_publicData, 32);
+	dl{
+		margin-#{$_bt}:countnumAdd(nth($_publicData, 42), 5);
+		dd{
+			width: nth($_publicData, 9);
+			.wrapbox{
+				position:$_rel;
+				min-height: countnumC(nth($_publicData, 38), 4);
+                margin:nth($_publicData, 4) nth($_publicData, 34);
+			    border: nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 44);
+                border-radius:nth($_publicData, 18);
+                box-shadow:nth($_publicData, 4) nth($_publicData, 4) nth($_publicData, 26) rgba(0,0,0, .2);
+                padding:nth($_publicData, 29) nth($_publicData, 29) nth($_publicData, 29) countnumC(nth($_publicData, 33), 4);
+                color: nth($_publicColor, 3);
+                @extend %boxsizing;
+                //标题
+                strong{
+                   display: nth($_publicShow, 3);
+                   font-size: nth($_publicData, 28);
+                   color: nth($_publicColor, 2);
+                   margin-#{$_bt}:nth($_publicData, 28);
+                }
+                //箭头
+                &::after{
+                   	content: '';
+                   	position:$_absol;
+                   	display: nth($_publicShow, 3);
+                   	background-size:contain;
+                }
+                //步骤图标
+                &::before{
+                   	content: '';
+                    position:$_absol;
+                    #{$_tp}:nth($_publicData, 29);
+                    #{$_lf}:nth($_publicData, 32);
+                   	width: countnumC(nth($_publicData, 21), 8);
+                   	height: countnumC(nth($_publicData, 21), 8);
+                   	display: nth($_publicShow, 4);
+                   	background-size:contain;
+                }
+               @for $i from 1 through 9 {
+               	  &.step#{$i}::before{
+               	  	  background: url(../images/purchaseflow#{$i}.png) $_ct no-repeat;
+               	  }
+               }
+               //向右箭头
+               &.right::after{
+                   background:url(../images/flowright_icon.png) $_ct no-repeat;
+                   width: countnumAdd(nth($_publicData, 34), 2);
+                   height: nth($_publicData, 33);
+                   #{$_tp}:nth($_publicData, 10);
+                   #{$_rg}:countnumC(nth($_publicData, 41), -1);
+                   margin-#{$_tp}:countnumC(nth($_publicData, 25), -1); 
+               }
+               //向左箭头
+               &.left::after{
+                   background:url(../images/flowleft_icon.png) $_ct no-repeat;
+                   width: countnumAdd(nth($_publicData, 34), 2);
+                   height: nth($_publicData, 33);
+                   #{$_tp}:nth($_publicData, 10);
+                   #{$_lf}:countnumC(nth($_publicData, 41), -1);
+                   margin-#{$_tp}:countnumC(nth($_publicData, 25), -1); 
+               }
+               //向下箭头
+               &.down::after{
+                   background:url(../images/flowdown_icon.png) $_ct no-repeat;
+                   width: nth($_publicData, 33);
+                   height: countnumAdd(nth($_publicData, 34), 2);
+                   #{$_lf}:nth($_publicData, 10);
+                   #{$_bt}:-46px;
+                   margin-#{$_lf}:countnumC(nth($_publicData, 25), -1); 
+               }
+			}
+		}
+	}
+}
+
+//购房支出费用
+.jsx-purchasecost{
+	padding-#{$_bt}:nth($_publicData, 43);
+	.costcompose{
+		width: countnumAdd(nth($_publicData, 10), 7%);
+		margin:nth($_publicData, 4) nth($_publicData, 2);
+		position:$_rel;
+		li{
+		   .costbox{
+		   	  width: nth($_publicData, 10);
+		   	  margin:nth($_publicData, 4) nth($_publicData, 2);
+		   	  padding:nth($_publicData, 4) nth($_publicData, 18);
+		   	  @extend %boxsizing;
+		   	  .box{
+		   	  	  text-align: $_ct;
+		   	  	  color: nth($_publicColor, 1);
+		   	  	  border-radius:nth($_publicData,10);
+		   	  	  padding:nth($_publicData, 43);
+		   	  	  margin:nth($_publicData, 4) nth($_publicData, 2);
+		   	  	  font-size: nth($_publicData, 27);
+		   	  	  line-height: nth($_publicData, 31);
+		   	  	  @extend %boxsizing;
+		   	  	  h3{
+		   	  	  	font-size: nth($_publicData, 34);
+		   	  	  	margin:nth($_publicData, 31) nth($_publicData, 2);
+		   	  	  	font-weight:nth($_publicData, 3);
+		   	  	  }
+		   	  	  &.cor-green{
+		   	  	  	 background:nth($_publicColor, 45);
+		   	  	  }
+		   	  	  &.cor-zise{
+		   	  	  	 background:nth($_publicColor, 46);
+		   	  	  }
+		   	  	  &.cor-red{
+		   	  	  	 background:nth($_publicColor, 47);
+		   	  	  }
+		   	  } 
+		   }
+		}
+		li + li{
+           margin-#{$_tp}:countnumC(nth($_publicData, 35), -1);
+		}
+		.dollar{
+			position:$_absol;
+			#{$_tp}:nth($_publicData, 10);
+			#{$_lf}:nth($_publicData, 10);
+			width: nth($_publicData, 7);
+			text-align: $_ct;
+			color: nth($_publicColor, 1);
+			border-radius:nth($_publicData, 10);
+			background:rgba(17,130,197, .9);
+			margin-#{$-lf}:countnumC(nth($_publicData, 6), -1);
+			.fa{
+				font-size: countnumC(nth($_publicData, 42), 2);
+			}
+		}
+	}
+}
+
+//房产投资收益图标
+.jsx-incomegraph{
+	width:nth($_publicData, 12);
+	margin:nth($_publicData, 4) nth($_publicData, 2);
+	padding:countnumAdd(nth($_publicData, 43), 20) nth($_publicData, 4) nth($_publicData, 40);
+	.graph-instroction{
+		border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 50);
+		padding:nth($_publicData, 27) nth($_publicData, 34);
+		margin-#{$_bt}:nth($_publicData, 41);
+		background:nth($_publicColor, 51);
+		border-radius:nth($_publicData, 16);
+		@extend %boxsizing;
+	}
+	table{
+		text-align: $_ct;
+	}
+	#jsx-investmenttable{
+		margin-#{$_bt}: nth($_publicData, 26);
+	}
+	//模块标题(小)
+   .jsx-subtitle{
+	    &.smallers{
+	        font-size: nth($_publicData, 31);
+	        margin:countnumC(nth($_publicData, 26), 4) nth($_publicData, 2) nth($_publicData, 34);
+	    }
+	    &.smallers2{
+	        font-size: nth($_publicData, 31);
+	        margin:countnumC(nth($_publicData, 26), 4) nth($_publicData, 2) nth($_publicData, 4);
+	        line-height: nth($_publicData, 29);
+	    }
+    }
+}

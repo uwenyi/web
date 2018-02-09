@@ -1,0 +1,283 @@
+@charset "utf-8";
+/*
+ * 弹框模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+.jsx-bombbox{
+   @extend %absolute0;
+   z-index: 9997;
+   display: nth($_publicData, 1);
+   //弹窗蒙版
+   .bomb-mask{
+       @extend %fixed0;
+       z-index: 9998;
+       background: rgba(0,0,0, .5);
+   }
+   //弹窗主体
+   .bomb-wrapbox{
+      position:$_fixed;
+      #{$_lf}:nth($_publicData, 10);
+      #{$_tp}:nth($_publicData, 10);
+      z-index: 9999;
+      background:nth($_publicColor, 1);
+      border-radius: nth($_publicData, 18);
+      width: 37.5%;
+      min-width: countnumC(nth($_publicData, 19),118);
+      //大尺寸弹框
+      &.largersize{
+          width: nth($_publicData, 10);
+          margin-#{$_lf}:countnumC(nth($_publicData, 8), -1);
+      }
+      //小尺寸弹框
+      &.smallsize{
+          width: nth($_publicData, 8);
+          min-width: countnumC(nth($_publicData, 43),4);
+          margin-#{$_lf}:-12.5%;
+      }
+      //弹窗头
+      .bomb-head{
+         padding:nth($_publicData, 26) nth($_publicData, 31);
+         color: nth($_publicColor, 32);
+         font-size: nth($_publicData, 28);
+         width: countnumPlus(nth($_publicData, 13), nth($_publicData, 5));
+         overflow: nth($_publicShow, 1);
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         @extend %boxsizing;
+      }
+      //关闭按钮
+      .bomb-close{
+         position: $_absol;
+         #{$_rg}:nth($_publicData, 29);
+         #{$_tp}:nth($_publicData, 22);
+         color: nth($_publicColor, 5);
+         cursor: nth($_publicCursor, 1);
+         &:hover{
+            color: nth($_publicColor, 6);
+         }
+      }  
+      //主体区域
+      .bomb-main{
+          //内容区域
+          .bomb-content{
+              overflow-y: nth($_publicData, 2);
+              overflow-x: nth($_publicShow, 1);
+              padding-#{$_tp}: nth($_publicData, 32);
+              @extend %boxsizing;
+              li{
+                  @extend %jsx-blockform;
+                  margin:nth($_publicData, 4) nth($_publicData, 35) nth($_publicData, 29);
+                  &.longth{
+                     .formitem-name{
+                         width: countnumAdd(nth($_publicData, 7),3%);
+                         max-width: nth($_publicData, 1);
+                     }
+                     .formitem-cont{
+                         width: countnumAdd(nth($_publicData, 11), 2%);
+                     }
+                  }
+              }
+          }
+          //按钮
+          .bomb-btn{
+              padding: nth($_publicData, 22) nth($_publicData, 36) nth($_publicData, 29);
+              em{
+                 color: nth($_publicColor, 49);
+                 margin-#{$_rg}:nth($_publicData, 17);
+                 display: nth($_publicShow, 4);
+                 line-height: nth($_publicData, 35);
+              }
+              @extend %boxsizing;
+              .abtn{
+                  @extend %publicbtn-blue;
+                  height: nth($_publicData, 40)!important;
+                  line-height: nth($_publicData, 40)!important;
+                  margin-#{$_lf}:nth($_publicData, 27);
+                  &.cancel{
+                      @extend %publicbtn-white;
+                  }
+                  &:hover{
+                      @include jsx-filter(90,.9);;
+                  }
+              }
+              .abtntext{
+                  padding: nth($_publicData, 22) nth($_publicData, 4); 
+                  width: countnumPlus(nth($_publicData, 10), nth($_publicData, 6));
+                  i{
+                      color:nth($_publicColor, 49);
+                      margin-#{$_rg}:nth($_publicData, 21);
+                  }
+              }
+          }
+          //文章类模块容器
+          .bomb-articlecontent{
+              .bomb-articletitle{
+                  padding:nth($_publicData, 32) nth($_publicData, 4) nth($_publicData, 34);
+                  @extend %boxsizing;
+                  h1{
+                     text-align: $_ct;
+                     line-height: nth($_publicData, 3);
+                     font-size: nth($_publicData, 30);
+                     padding:nth($_publicData, 4) nth($_publicData, 42) nth($_publicData, 20);
+                     @extend %boxsizing;
+                  }
+                  time{
+                     text-align: $_ct;
+                     color: nth($_publicColor, 3);
+                     font-size: nth($_publicData, 27);
+                     display: nth($_publicShow, 3);
+                     margin:nth($_publicData, 4) nth($_publicData, 2);
+                  }
+               }
+              .bomb-articlemain{
+                  margin: nth($_publicData, 4) nth($_publicData, 2);
+                  padding:nth($_publicData, 4) nth($_publicData, 42);
+                  overflow-y: nth($_publicData, 2);
+                  overflow-x: nth($_publicShow, 1);
+                  @extend %boxsizing;
+                  p{
+                      margin-#{$_bt}:nth($_publicData, 34); 
+                  }
+                  img{
+                      margin:nth($_publicData, 4) nth($_publicData, 2) nth($_publicData, 34);
+                      width: countnumAdd(nth($_publicData, 10), nth($_publicData, 6));
+                      display: nth($_publicShow, 3);
+                  }
+              }
+          }
+      }
+   }
+}
+//20171028
+@include jsx-media(nth($_device,1),nth($_device,2)){
+    .jsx-bombbox{
+       z-index: 9997;
+       display: nth($_publicData, 1);
+       //弹窗蒙版
+       .bomb-mask{
+           z-index: 9998;
+           background: rgba(0,0,0, .5);
+       }
+       //弹窗主体
+       .bomb-wrapbox{
+          width: 100%;
+          min-width: auto;
+          //大尺寸弹框
+          &.largersize{
+              width: nth($_publicData, 10);
+              margin-#{$_lf}:countnumC(nth($_publicData, 8), -1);
+          }
+          //小尺寸弹框
+          &.smallsize{
+              width: nth($_publicData, 8);
+              min-width: countnumC(nth($_publicData, 43),4);
+              margin-#{$_lf}:-12.5%;
+          }
+          //弹窗头
+          .bomb-head{
+             padding:nth($_publicData, 26) nth($_publicData, 31);
+             color: nth($_publicColor, 32);
+             font-size: 0.32rem;
+             width: countnumPlus(nth($_publicData, 13), nth($_publicData, 5));
+             overflow: nth($_publicShow, 1);
+             text-overflow: ellipsis;
+             white-space: nowrap;
+          }
+          //关闭按钮
+          .bomb-close{
+             position: $_absol;
+             #{$_rg}:nth($_publicData, 29);
+             #{$_tp}:nth($_publicData, 22);
+             color: nth($_publicColor, 5);
+             cursor: nth($_publicCursor, 1);
+             &:hover{
+                color: nth($_publicColor, 6);
+             }
+          }  
+          //主体区域
+          .bomb-main{
+              //内容区域
+              .bomb-content{
+                  overflow-y: nth($_publicData, 2);
+                  overflow-x: nth($_publicShow, 1);
+//                padding-#{$_tp}: nth($_publicData, 32);
+                  padding-#{$_tp}: nth($_publicData, 4);
+                  li{
+                      margin:nth($_publicData, 4) 0.5rem nth($_publicData, 29);
+                      &.longth{
+                         .formitem-name{
+                             width: countnumAdd(nth($_publicData, 7),3%);
+                             max-width: nth($_publicData, 1);
+                         }
+                         .formitem-cont{
+                             width: countnumAdd(nth($_publicData, 11), 2%);
+                         }
+                      }
+                  }
+              }
+              //按钮
+              .bomb-btn{
+                  padding: nth($_publicData, 22) 0.5rem;
+                  em{
+                     color: nth($_publicColor, 49);
+                     margin-#{$_rg}:nth($_publicData, 17);
+                     display: nth($_publicShow, 4);
+                     line-height: nth($_publicData, 35);
+                  }
+                  .abtn{
+                      height: 0.8rem!important;
+                      line-height: 0.8rem!important;
+                      margin-#{$_lf}:nth($_publicData, 27);
+                      &.cancel{
+                      }
+                      &:hover{
+                          @include jsx-filter(90,.9);;
+                      }
+                  }
+                  .abtntext{
+                      padding: nth($_publicData, 22) nth($_publicData, 4); 
+                      width: 100%;
+                      i{
+                          color:nth($_publicColor, 49);
+                          margin-#{$_rg}:nth($_publicData, 21);
+                      }
+                  }
+              }
+              //文章类模块容器
+              .bomb-articlecontent{
+                  .bomb-articletitle{
+                      padding:nth($_publicData, 32) nth($_publicData, 4) nth($_publicData, 34);
+                      h1{
+                         text-align: $_ct;
+                         line-height: nth($_publicData, 3);
+                         font-size: nth($_publicData, 30);
+                         padding:nth($_publicData, 4) nth($_publicData, 42) nth($_publicData, 20);
+                      }
+                      time{
+                         text-align: $_ct;
+                         color: nth($_publicColor, 3);
+                         font-size: nth($_publicData, 27);
+                         display: nth($_publicShow, 3);
+                         margin:nth($_publicData, 4) nth($_publicData, 2);
+                      }
+                   }
+                  .bomb-articlemain{
+                      margin: nth($_publicData, 4) nth($_publicData, 2);
+                      padding:nth($_publicData, 4) nth($_publicData, 42);
+                      overflow-y: nth($_publicData, 2);
+                      overflow-x: nth($_publicShow, 1);
+                      p{
+                          margin-#{$_bt}:nth($_publicData, 34); 
+                      }
+                      img{
+                          margin:nth($_publicData, 4) nth($_publicData, 2) nth($_publicData, 34);
+                          width: countnumAdd(nth($_publicData, 10), nth($_publicData, 6));
+                          display: nth($_publicShow, 3);
+                      }
+                  }
+              }
+          }
+       }
+    }
+}

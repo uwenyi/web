@@ -1,0 +1,28 @@
+@charset "utf-8";
+/*
+ * 文章正文、关于合力模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+.jsx-article{
+   margin:nth($_publicData, 4) countnumAdd(nth($_publicData, 43),10) countnumPlus(nth($_publicData, 43),5);
+   //标题
+   h1{
+      font-weight: nth($_publicData, 3);
+      font-size: nth($_publicData, 36);
+      text-align: $_ct;
+   }
+   //正文
+   .contain{
+      margin-#{$_tp}: nth($_publicData, 41);
+      color: nth($_publicColor, 18);
+      p{
+         margin-#{$_bt}: nth($_publicData, 26);
+         text-indent: nth($_publicData, 38);
+      }
+      img{
+         margin: nth($_publicData, 4) nth($_publicData, 2) nth($_publicData, 26);
+         width: nth($_publicData, 11);
+      }
+   }
+}

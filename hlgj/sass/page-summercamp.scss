@@ -1,0 +1,220 @@
+@charset "utf-8";
+/*
+ * 主题夏/冬令营样式
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+@import "public";
+@import "css-reset";
+@import "mediascreen";
+@import "header";
+@import "footer";
+@import "form";
+@import "banner";
+@import "pictextpannel";
+@import "themecamp";
+@import "camptype";
+@import "form";
+@import "bombbox";
+
+//顶部夏令营课程图文列表
+.jsx-campcourse{
+	background:nth($_publicColor, 16);
+	padding:nth($_publicData, 43) nth($_publicData, 4);
+	.jsx-courselist{
+		margin-#{$_bt}:nth($_publicData, 4);
+		margin-#{$_tp}:nth($_publicData, 4);
+		dd{
+			font-weight: bold;
+		}
+		.camptitle{
+			font-size: nth($_publicData, 31);
+			color: nth($_publicColor, 6);
+			margin-#{$_lf}:nth($_publicData, 29);
+			&.c1{
+				margin-#{$_bt}:nth($_publicData, 35);
+			}
+		}
+		.camppline{
+			color: nth($_publicColor, 3);
+			margin:nth($_publicData, 23) nth($_publicData, 29) nth($_publicData, 31);
+		}
+	}
+}
+
+//注册申请
+.jsx-campapply{
+	background:nth($_publicColor, 52);
+	padding:countnumAdd(nth($_publicData, 42),10) nth($_publicData, 4);
+	h3{
+       text-align:$_ct;
+	   color:nth($_publicColor, 1);
+	   font-size:nth($_publicData, 28);
+	   font-weight: nth($_publicData, 3);
+	   margin-#{$_bt}:nth($_publicData, 32);
+	   em{
+	   	  font-size: countnumC(nth($_publicData, 10), 3);
+	   }
+	}
+	li{
+		padding:nth($_publicData, 4) nth($_publicData, 19);
+		position: $_rel;
+		@extend %boxsizing;
+		@extend %jsx-inlineform;
+		@for $i from 1 through 4 {
+			@if $i == 1 {
+			    &.s#{$i}{
+			    	width: countnumPlus(nth($_publicData, 7), 2%);
+			    }
+			} @else if  $i == 2{
+				&.s#{$i}{
+			    	width: countnumPlus(nth($_publicData, 6), 2%);
+			    }
+			}  @else if  $i == 3{
+				&.s#{$i}{
+			    	width: countnumAdd(nth($_publicData, 6), 5%);
+			    }
+			} @else {
+				&.s#{$i}{
+			    	width: countnumAdd(nth($_publicData, 6), 1.5%);
+			    }
+			}
+	    }
+	    .abtn{
+	    	@extend %publicbtn-yellow;
+	    	border: nth($_publicData, 1);
+	    }
+	    .jsx-options{
+	    	#{$_lf}: nth($_publicData, 19);
+	    	#{$_rg}: nth($_publicData, 19);
+	    	&.opt1{
+	    	    width: countnumC(nth($_publicData, 43), 4);
+	        }
+	    }
+	}
+}
+//2017/10/29
+@include jsx-media(nth($_device,1),nth($_device,2)){
+        .jsx-campcourse{
+        background:nth($_publicColor, 16);
+        padding:nth($_publicData, 4) nth($_publicData, 4);
+        .jsx-courselist{ 
+            margin-top: 0.1rem;
+           li{
+                div{float: none;
+                    width: 100%;
+                      }
+                .text{
+                     height: auto;
+                     padding: 0;
+                     padding: 0.1rem 0.3rem;
+                     .camptitle{
+                         font-size: 0.5rem;
+                         margin: 0;
+                         margin-bottom: 0.1rem;
+                         text-align: center;
+                     }
+                     .camppline{
+                        font-size: 0.25rem;
+                        margin: 0;
+                        margin-bottom: 0.1rem;
+                     }
+                     dd{             
+                             font-size: 0.35rem;
+                             line-height: 0.5rem;
+                             margin-bottom: 0;;
+                        }
+                    &.p2{
+                            padding:0 0.3rem ;
+                        }
+                     }
+                }
+        }
+    }
+    //注册申请
+    .jsx-campapply{
+        margin-top: 0.1rem;
+        padding: 0.3rem .2rem;
+            h3{
+                font-size: 0.25rem;
+                margin-bottom: 0.2rem;
+            }
+        
+       li{
+        width: nth($_publicData, 14) !important;
+        padding: 0;
+        margin-bottom: 0.1rem;
+        input{height:0.8rem;border: none;font-size: 0.25rem;line-height: 0.25rem;}
+        span{font-size: 0.25rem;
+              left: 0.5rem;
+              line-height: 0.8rem;
+              top:0;
+            }
+        &.s4,&.s3{
+            height:0.8rem;
+            .jsx-formSelect{
+                padding: 0;
+                padding-left: 0.5rem;
+                em{line-height: 0.8rem;margin-top:0;}
+            }
+            div{
+                height:0.8rem;
+                font-size: 0.25rem;
+            }
+            em{
+                margin-top: -0.2rem;
+            }
+            dl{
+                top:0.8rem;
+                width:100% !important;
+                left: 0;
+                dd{
+                    font-size: 0.25rem;
+                    height: 0.8rem;
+                    line-height: 0.8rem;
+                }
+            }   
+          } 
+          .abtn{
+              margin:0 auto;
+              height: 0.8rem;
+              line-height: 0.8rem;
+              font-size: 0.3rem;
+              margin-top: 0.1rem;
+          }     
+        }
+    }
+    .jsx-themecamp{
+        .scroll-main{
+            li:nth-child(2){display: none;}
+            li{ width: 100%;
+                .leftimg{width: 100%;}
+                span{display: none;}
+                .rightcon{
+                    width: 100%;
+                    overflow: hidden;
+                   // img{height: 4rem;}
+                    .textcontent{
+                        h3{margin: 0.5rem 0;font-size: 0.5rem;}
+                        p{font-size: 0.35rem;}
+                    }
+                    a{bottom: 0.7rem;}
+                }
+            }
+        }
+    }
+    .jsx-camptype{
+        padding: 0;
+        .camptypeimg{width: 100%;
+                    span{display: none;}
+            }
+        .camptypecont{
+            width: 100%;
+            padding: 0;
+            text-align: center;
+            em{line-height: 0.5rem;}
+            .contsection{margin: 0;width: 100%;padding: 0 0.2rem;box-sizing: border-box;}
+        }  
+    }
+    .jsx-themecamp{margin-bottom: 0.2rem;}
+}

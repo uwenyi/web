@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link href="css/buycar.css" rel="stylesheet" type="text/css"/>
+    <script src="js/vue.js"></script>
+    <script type="text/javascript" src="js/axios.min.js" ></script>
+    <link rel="stylesheet" href="css/theme-chalk/index.css" />
+</head>
+<body>
+	<div id="app">
+	  <div class="header">
+	        <fieldset>
+	            <legend>购物车</legend>
+	        </fieldset>
+	    </div>
+	    <table class="table table-hover">
+	        <thead>
+	        	<tr class="active">
+		            <th class="msg-gap">商品信息</th>
+		            <th>商品金额</th>
+		            <th>商品数量</th>
+		            <th>总金额</th>
+		            <th>编辑</th>
+	           </tr>
+	        </thead>
+	        <tbody>
+	        	<tr v-for="(item,index) in list">
+	        		<td class="goleft">
+			        	<ins class="select-btn" v-bind:class="{'choose':item.checked}" v-on:click=selectProduct(item)>
+							<svg viewBox="0 0 60 60" class="checked-icon"><use xlink:href="#shape"></use></svg>
+			        	</ins>
+			        	<dl>
+			        		<dt>
+			        			<img v-bind:src="item.productImage"/>
+			        		</dt>
+			        		<dd>
+			        			<h5 class="sp">{{item.productName+"索引："+index}}</h5>
+			        			<h5 class="clearleft">赠送:</h5>
+			        			<div class="gift">
+			        				<span v-for="gift in item.parts" v-text="gift.partsName"></span>
+			        			</div>
+			        		</dd>
+			        	</dl>
+		        	</td>
+		        	<td>
+		        		<div class="price">{{item.productPrice | formatMoney}}</div>
+		        	</td>
+		        	<td>
+			        	<div class="add-cut">
+			        		<button @click=changeNum(item,-1)>-</button>
+			        		<input type="text" v-model="item.productQuentity"/>
+			        		<button v-on:click=changeNum(item,1)>+</button>
+			        	</div>
+		        	</td>
+		        	<td>
+		        		<div class="total-price">{{item.productPrice*item.productQuentity | money('元')}}</div>
+		        	</td>
+		        	<td>
+		        		<i class="del-icon" @click=delConfirm(item)>删除</i>
+		        	</td>	
+	     	   </tr>
+	        </tbody>
+	        <tfoot>
+	        	<tr>
+	        		<td class="goleft" colspan='3'>
+			        	<ins class="select-btn" :class="{'choose-all':flagAll}"></ins>
+			        	<span class="select-all" @click=checkAll(true)>全选</span>
+			        	<span class="cancel-all" @click=checkAll(false)>取消全选</span>
+		        	</td>
+		        	<td>
+		        		<span>
+		        			总金额:
+		        		</span>
+		        		<span>
+		        			{{totalMoney | formatMoney}}
+		        		</span>
+		        	</td>
+		        	<td>
+		        		<button class="buy-btn" @click="Checkout">结算</button>
+		        	</td>	
+	     	   </tr>
+	        </tfoot>
+	    </table>
+	    <div class="confirmbox" v-bind:class="{'show-confirmbox':showFlag}" >
+	    	<p>确认删除此商品吗？</p>
+	    	<div class="ctrl-del-bar clearfix">
+	    		<div class="yes" @click=confirmPro>确定</div>
+	    	    <div class="no" @click='showFlag=false'>取消</div>   
+	    	</div>
+ 	   </div>
+   	   <div class='mask-black' v-if=showFlag></div>	
+    </div>
+    	<svg version="1.0" xmlns="http://www.w3.org/2000/svg">
+			<symbol id="shape">
+				<circle class="st0" cx="30.1" cy="30.3" r="29.8"/>
+				<path class="st1" d="M9.1,37.1l16.5,8.4c0,0,15.5-22.8,25.5-25.5l-5.6-7.8c0,0-13.6,16.1-20.2,26.9c0,0-12-4.6-12-8.4L9.1,37.1z"/>
+			</symbol>
+		</svg>
+</body>
+ <script src="js/buy.js" ></script>
+</html>

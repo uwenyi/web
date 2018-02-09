@@ -1,0 +1,548 @@
+@charset "utf-8";
+/*
+ * 中美互惠生样式
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+@import "public";
+@import "css-reset";
+@import "mediascreen";
+@import "header";
+@import "footer";
+@import "article";
+@import "tabmenu";
+@import "form";
+@import "bombbox";
+
+//banner
+.jsx-topbanner{
+	@extend %subbanner;
+}
+
+//互惠生简介
+.jsx-reciprocity{
+	margin:countnumC(nth($_publicData, 38),3) nth($_publicData, 2) countnumAdd(nth($_publicData, 43),14);
+	.left-img{
+		width: 30%;
+	}
+	.right-cont{
+		width: 70%;
+		padding-#{$_lf}:nth($_publicData, 34);
+		@extend %boxsizing;
+		h3{
+		   color: nth($_publicColor, 6);
+		   font-size: nth($_publicData, 28);
+		   font-weight: nth($_publicData, 3);
+		}
+		p{
+		   color: nth($_publicColor, 3);
+		   margin:nth($_publicData, 19) nth($_publicData, 4) nth($_publicData, 36);
+		   &:nth-of-type(2){
+		   	   margin-#{$_bt}: nth($_publicData, 4); 
+		   }
+		}
+	}
+}
+
+//项目优势
+.jsx-advantage{
+	.advantagewrap{
+		background: nth($_publicColor, 40);
+		padding:nth($_publicData, 35) nth($_publicData, 4);
+		margin-#{$_bt}:nth($_publicData, 29);
+		.leftimg{
+			width: 30%;
+		}
+		.rightcont{
+			width: 70%;
+			padding-#{$_lf}:nth($_publicData, 42);
+			@extend %boxsizing;
+			h3{
+				font-weight: nth($_publicData, 3);
+				font-size: nth($_publicData, 28);
+				margin-#{$_tp}:nth($_publicData, 27);
+				@extend %texttypestyle;
+				&:nth-of-type(1){
+					margin-#{$_tp}:nth($_publicData, 4);
+				}
+				&.cor-red{
+					color: nth($_publicColor, 26);
+				} 
+				&.cor-green{
+					color: nth($_publicColor, 30);
+				} 
+				&.cor-blue{
+					color: nth($_publicColor, 6);
+				} 
+				&.cor-orange{
+					color: nth($_publicColor, 31);
+				}
+				&.cor-zise{
+					color: nth($_publicColor, 29);
+				}
+			}
+			p{
+				margin-#{$_lf}:nth($_publicData, 29);
+				margin-#{$_tp}:nth($_publicData, 26);
+			}
+		}
+	}
+}
+
+//互惠生职责
+.jsx-responsibility{
+	padding:countnumAdd(nth($_publicData, 43), 14) nth($_publicData, 4) nth($_publicData, 29);
+	background:nth($_publicColor, 28);
+	.container{
+		padding:nth($_publicData, 29) nth($_publicData, 4);
+		@extend %jsx-tabMenus;
+		strong{
+			font-weight: nth($_publicData, 3);
+			color: nth($_publicColor, 31);
+			display: nth($_publicShow, 3);
+			padding-#{$_lf}:nth($_publicData, 22);
+			margin-#{$_tp}:nth($_publicData, 25); 
+		}
+		.tab-show{
+			height: countnumC(nth($_publicData, 42), 6);
+		}
+	}
+	p{
+		color: nth($_publicColor, 3);
+		font-size: nth($_publicData, 27);
+	}
+	.p-notes{
+		margin-#{$_lf}:countnumPlus(nth($_publicData, 7), 2%);
+		margin-#{$_bt}:nth($_publicData, 38); 
+	}
+}
+
+//互惠生权利
+.jsx-interest{
+	background:nth($_publicColor, 16);
+	padding:countnumC(nth($_publicData, 42), 2) nth($_publicData, 4);
+	li{
+		width: nth($_publicData, 10);
+		text-align:$_ct;
+		background:nth($_publicColor, 42);
+		.pannel-title{
+			color: nth($_publicColor, 1);
+			font-size: nth($_publicData, 30);
+			height: countnumC(nth($_publicData, 17), 31);
+			line-height: countnumC(nth($_publicData, 17), 31);
+			background:nth($_publicColor, 6);
+		}
+		&:first-child{
+		   box-shadow:nth($_publicData, 4) nth($_publicData, 4) nth($_publicData, 43) rgba(0,0,0, .2);
+		   background: nth($_publicColor, 41);
+		   position: $_rel;
+		   .pannel-title{
+		   	   background:nth($_publicColor, 14);
+		   }
+		}
+		.pannel-wrap{
+			padding:nth($_publicData, 36) nth($_publicData, 4);
+			min-height: countnumC(nth($_publicData, 20), 58);
+			h3{
+				margin-#{$_bt}:nth($_publicData, 34);
+				font-size: nth($_publicData, 28);
+				font-weight: nth($_publicData, 3);
+			}
+			p{
+				line-height: nth($_publicData, 33);
+			}
+		}
+	}
+}
+
+//项目时长及费用
+.jsx-duration{
+	background:nth($_publicColor, 28);
+	padding:countnumAdd(nth($_publicData, 43), 10) nth($_publicData, 4) nth($_publicData, 43);
+	li{
+		background:nth($_publicColor, 1);
+		margin-#{$_bt}:nth($_publicData, 29);
+		padding:nth($_publicData, 29) nth($_publicData, 4);
+		.items-name{
+			width: nth($_publicData, 7);
+			span{
+				display: nth($_publicShow, 3);
+				position:$_rel;
+				background:nth($_publicColor, 6);
+				color: nth($_publicColor, 1);
+				text-align:$_ct;
+				height: countnumAdd(nth($_publicData, 42), 10);
+				line-height: countnumAdd(nth($_publicData, 42), 10);
+				font-size: nth($_publicData, 30);
+				.fa{
+					position:$_absol;
+					right: countnumC(nth($_publicData, 22), -1);
+					#{$_tp}:nth($_publicData, 10);
+					margin-#{$_tp}:countnumC(nth($_publicData, 27), -1);
+					color: nth($_publicColor, 6);
+					font-size: countnumAdd(nth($_publicData, 34), 2);
+				}
+			}
+		}
+		.items-cont{
+			width: nth($_publicData, 12);
+			padding-#{$_lf}: countnumAdd(nth($_publicData, 43), 10);
+			padding-#{$_rg}: nth($_publicData, 29);
+			color: nth($_publicColor, 3);
+			font-size: nth($_publicData, 27);
+			line-height: nth($_publicData, 32);
+			@extend %boxsizing;
+			p{
+				@extend %texttypestyle;
+			}
+		}
+		&.oneline{
+			padding:nth($_publicData, 4);
+			.items-cont{
+				 line-height: countnumAdd(nth($_publicData, 42), 10);
+			}
+		}
+	}
+}
+
+//安全保障
+.jsx-safety{
+	padding:countnumAdd(nth($_publicData, 43), 10) nth($_publicData, 4) nth($_publicData, 43);
+
+	li{
+		width: 24.3%;
+		margin:countnumC(nth($_publicData, 19), 22) .35% nth($_publicData, 4);
+		position:$_rel;
+		background:nth($_publicColor, 43);
+		min-height: countnumC(nth($_publicData, 38), 11);
+		padding-#{$_bt}:nth($_publicData, 26);
+		@extend %boxsizing;
+		&::before{
+			content: '';
+			width: countnumC(nth($_publicData, 16), 77);
+			height: countnumC(nth($_publicData, 16), 77);
+			display: nth($_publicShow, 3);
+			background-size:contain;
+			position:$_absol;
+			#{$_tp}: -77px;
+			#{$_lf}: nth($_publicData, 10);
+			margin-#{$_lf}:-77px;
+			z-index: 2;
+		}
+		@for $i from 1 through 4 {
+			 &:nth-of-type(#{$i}){
+			 	&::before{
+                   background:url(../images/reciprocity#{$i}_icon.png) center no-repeat;
+			 	}
+		     }
+		}
+		h3{
+			text-align:$_ct;
+			font-size: nth($_publicData, 28);
+			margin:countnumAdd(nth($_publicData, 43) ,25) nth($_publicData, 2) nth($_publicData, 34);
+			font-weight: nth($_publicData, 3);
+		}
+		p{
+			margin:nth($_publicData, 4) nth($_publicData, 32);
+			line-height: nth($_publicData, 33);
+		}
+		a{
+			color: nth($_publicColor, 6);
+			&:hover{
+			   text-decoration: underline;
+			}
+		}
+		&:hover{
+			color: nth($_publicColor, 6);
+			box-shadow: nth($_publicData, 4) nth($_publicData, 22) nth($_publicData, 42) rgba(0,0,0, .25);
+			cursor: nth($_publicCursor, 2);
+		}
+	}
+	strong{
+		display: nth($_publicShow, 3);
+		margin-#{$_tp}:nth($_publicData, 29);
+		color: nth($_publicColor, 3);
+		font-weight: nth($_publicData, 3);
+	}
+}
+
+//注册表单
+.jsx-register{
+	background:nth($_publicColor, 22);
+	padding:nth($_publicData, 35) nth($_publicData, 4) nth($_publicData, 32);
+	li{
+		//图片
+	    .reg-img{
+	    	width: nth($_publicData, 10);
+	    	padding-#{$_tp}:nth($_publicData, 42);
+	    }
+	    //表单部分
+	    .reg-form{
+	    	width: nth($_publicData, 10);
+	    	@extend %boxsizing;
+	    	&.r1{
+	    		padding-#{$_lf}:nth($_publicData, 34);
+	    	}
+	    	&.r2{
+	    		padding-#{$_rg}:nth($_publicData, 34);
+	    	}
+	    	.btnlink{
+	    		color: nth($_publicColor, 6);
+	    		line-height: nth($_publicData, 42);
+	    		font-size: nth($_publicData, 30);
+	    		text-align: $_ct;
+	    	}
+	    	//表单列表
+	    	.formbox{
+	    		background:nth($_publicColor, 1);
+	    		padding:nth($_publicData, 32) nth($_publicData, 29) nth($_publicData, 20);
+	    		li{
+	    			height: nth($_publicData, 36);
+	    			line-height: nth($_publicData, 36);
+	    			margin-#{$_bt}:nth($_publicData, 23);
+	    			color: nth($_publicColor, 3);
+	    			//输入框
+	    			.inputdiv{
+	    				border:nth($_publicData, 1);
+	    				border-#{$_bt}:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 34);
+	    				color: nth($_publicColor, 2);
+	    				border-radius:nth($_publicData, 4);
+	    				padding:nth($_publicData, 4);
+	    				&:focus{
+	    					border-#{$_bt}-color:nth($_publicColor, 6);
+	    				}
+	    			}
+	    			//字段名称
+	    			span{
+	    				display: nth($_publicShow, 4);
+	    			}
+	    		}
+	    		li + li{
+	    			margin-#{$_tp}:nth($_publicData, 4);
+	    		}
+	    	}
+	    	.abtn{
+	    		@extend %publicbtn-blue;
+	    		margin:nth($_publicData, 34) nth($_publicData, 2) nth($_publicData, 29);
+                width: countnumC(nth($_publicData, 38), 3);
+	    	}
+	    }
+	}
+	li + li{
+		margin-#{$_tp}:nth($_publicData, 42);
+	}
+}
+
+//常见问题
+.jsx-question{
+	padding:countnumAdd(nth($_publicData, 43), 14) nth($_publicData, 43) countnumC(nth($_publicData, 43), 2.5);		
+    dd{
+	    line-height: nth($_publicData, 33);
+		width: nth($_publicData, 10);
+		padding-#{$_rg}:nth($_publicData, 32);
+		@extend %boxsizing;
+		a{
+			color: nth($_publicColor, 2);
+			@extend %texttypestyle;
+			&:hover{
+			    color: nth($_publicColor, 6);
+		    }
+		}
+	}
+}
+//2017/11/1
+@include jsx-media(nth($_device,1),nth($_device,2)){
+    //banner
+    .jsx-topbanner{
+        margin: 0;
+         margin-top:0.96rem;
+    }
+    //互惠生简介
+    .jsx-wrapcontent{
+        .jsx-subtitle{
+            margin-bottom: 0;
+            color: #fff;
+            line-height: 0.8rem;
+            background:#2cb9ef;
+            font-size: 0.35rem;
+            &:after{
+                content: "";
+                display: block;
+                height: 0.4rem;
+                width: 100%;
+                background:#fff url(../images/hhs1.jpg) no-repeat center;
+            }
+        }
+         .jsx-article{
+             margin: 0 0.3rem;
+             font-size: 0.2rem;
+              .contain{
+                  margin: 0;
+                  p{
+                      margin-bottom: 0.1rem;
+                  }
+              }
+         }
+         .jsx-reciprocity{
+             margin: 0;
+             .left-img{
+                   width: 100%;
+                   height: 4rem;
+                   overflow: hidden;
+                   img{margin-top: -20%;}
+             }
+             .right-cont{
+                 padding:0 0.2rem;
+                 width: 100%;
+                 h3{font-size: 0.3rem;padding: 0.1rem 0;}
+                 p{font-size: 0.2rem;margin: 0;}
+             }
+         }
+    }
+   //互惠生去美国项目优势
+   .jsx-advantage{
+       margin-top: 0.2rem;
+       .jsx-subtitle{
+           margin-bottom: 0;
+            color: #fff;
+            line-height: 0.8rem;
+            background:#ff9900;
+            font-size: 0.35rem;
+            &:after{
+                content: "";
+                display: block;
+                height: 0.4rem;
+                width: 100%;
+                background:#fff url(../images/hhs1.jpg) no-repeat center;
+            }
+       }
+       .advantagewrap{
+           padding: 0;
+           .leftimg{display: none;}
+           .rightcont{
+               width: 100%;
+               padding: 0 0.2rem;
+               h3{
+                   font-size: 0.3rem;
+                   margin-top: 0.2rem;
+               }
+               p{
+                   font-size: 0.2rem;
+                   padding: 0;
+                   margin: 0;
+               }
+             }
+       }
+   }
+   //互惠生职责
+   .jsx-responsibility{
+       padding:0;
+       .jsx-subtitle{
+           margin-bottom: 0;
+            color: #fff;
+            line-height: 0.8rem;
+            background:#29b473;
+            font-size: 0.35rem;
+            &:after{
+                content: "";
+                display: block;
+                height: 0.4rem;
+                width: 100%;
+                background:#fff url(../images/hhs1.jpg) no-repeat center;
+            }
+        }  
+        .jsx-wrapcontent{
+            padding: 0.3rem 0;
+            .container{
+                padding: 0.2rem 0.2rem;
+                .tab-nav{
+                    width: 100%;
+                   .navli{
+                       float: left;
+                        width: 1.5rem;
+                        margin-right: 0.25rem;
+                         }
+                    .navli:last-child{
+                        margin-right: 0;
+                    }
+                }
+            .jsx-tabContent{
+                width: 100%;
+                height: 3rem;
+                &.tab-show{
+                   padding: 0.2rem 0.2rem; 
+                } 
+                li{
+                    p,strong{
+                         font-size: 0.2rem;
+                         line-height: 0.4rem;
+                    }
+                }
+               }      
+            }
+            .p-notes{
+                margin: 0 0.2rem;
+                font-size: 0.2rem;
+                
+            }
+        }  
+   }
+   //互惠生权利
+   .jsx-interest{
+       padding: 0.4rem 0;
+       .jsx-wrapcontent{
+           li{
+            width: 100%;
+            .pannel-title{
+                font-size: 0.35rem;
+                height: 1rem;
+                line-height: 1rem;
+            }
+            .pannel-wrap{
+                height: auto;
+                min-height:auto;
+                padding: 0.2rem 0;
+                h3{
+                    margin-bottom: 0.1rem;
+                    font-size: 0.25rem;
+                }
+                p{
+                    font-size: 0.2rem;
+                }
+            }
+           }
+       }
+   }
+   //项目时长和费用
+   .jsx-duration{
+       padding: 0.2rem 0;
+       .jsx-subtitle{
+           padding:0;
+       }
+       .jsx-wrapcontent{
+           .jsx-clearfloat{
+               padding: 0.2rem 0.2rem;
+               margin-bottom: 0.1rem;
+               .items-name{
+                   padding: 0 !important;
+                   width: 50%;
+                   margin: 0 auto;
+                   float: none;
+                   span{
+                      height: 0.7rem;
+                       line-height: 0.7rem;
+                       font-size: 0.3rem;
+                      // box-shadow: 0 0.05rem 0.3rem #999;
+                   }
+               }
+            .items-cont{
+                width: 100%;
+                padding: 0.5rem 0.2rem 0 0.2rem ;
+                margin-top:-0.35rem ;
+                font-size: 0.2rem;
+                box-shadow: 0 0 0.3rem #999;
+            }   
+           }
+       }
+   }
+}

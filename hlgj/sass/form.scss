@@ -1,0 +1,200 @@
+@charset "utf-8";
+/*
+ * 表单模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+//内联表单
+%jsx-inlineform{
+    span{
+         position:$_absol;
+         #{$_lf}:nth($_publicData, 31);
+         #{$_tp}:nth($_publicData, 27);
+         font-size: nth($_publicData, 27);
+    }
+    input{
+         @extend %inputs;
+    }
+    .jsx-selects{
+          @extend %selects;
+    }
+    .jsx-options{
+         #{$_lf}:nth($_publicData, 22);
+         #{$_rg}:nth($_publicData, 22);
+         @extend %select-options;
+    }
+}
+
+//块状表单
+%jsx-blockform{
+   .formitem-name{
+       width: countnumAdd(nth($_publicData, 6),6%);
+       max-width: countnumC(nth($_publicData, 19), 22);
+       color: nth($_publicColor, 61);
+       padding:nth($_publicData, 22) nth($_publicData, 4);
+       i{
+          color:nth($_publicColor, 49);
+          margin-#{$_rg}:nth($_publicData, 21);
+       }
+   }
+   .formitem-cont{
+       @extend %boxsizing;
+       width: countnumAdd(nth($_publicData, 12), 4%);
+       padding-#{$_lf}:nth($_publicData, 26);
+       position:$_rel;
+       &.row3{
+           width: 24.5%!important;
+       }
+       input{
+           @extend %inputs;
+           padding:nth($_publicData, 4) nth($_publicData, 22);
+           height: nth($_publicData, 38);
+           line-height: nth($_publicData, 38);
+           border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 62);
+       }
+       textarea{
+           @extend %inputs;
+           padding:nth($_publicData, 4) nth($_publicData, 22);
+           min-height: countnumAdd(nth($_publicData, 43), 10);
+           border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 62);
+       }
+       .jsx-selects{
+           @extend %selects;
+           height: nth($_publicData, 38);
+           line-height: nth($_publicData, 38);
+           border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 62);
+           em{
+              margin-#{$_tp}:-11px; 
+           }
+           .fa{
+               color: nth($_publicColor, 62);
+               #{$_tp}:nth($_publicData, 21);
+               #{$_rg}:nth($_publicData, 25);
+           }
+       } 
+       .jsx-options{
+           #{$_lf}:nth($_publicData, 26);
+           #{$_rg}:nth($_publicData, 4);
+           #{$_tp}: countnumAdd(nth($_publicData, 36), 1);
+           border: nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 62);
+           @extend %select-options;
+       }
+       label{
+           position:$_rel;
+           margin-#{$_rg}:nth($_publicData, 27);
+           cursor: nth($_publicCursor, 1);
+           height: nth($_publicData, 38);
+           line-height: nth($_publicData, 38);
+           display: nth($_publicShow, 4);
+           em{
+              color: nth($_publicColor, 62);
+              margin-#{$_rg}:nth($_publicData, 20);
+              vertical-align: nth($_publicVerticalalign, 1);
+              font-size: nth($_publicData, 30);
+              @include jsx-transtion(all, .5s);
+              &.jsx-active{
+                 color:nth($_publicColor, 6);
+              }
+           }
+           input{
+              position:$_absol;
+              #{$_lf}:nth($_publicData, 4);
+              #{$_tp}:nth($_publicData, 23);
+              z-index: 2;
+              width: nth($_publicData, 29);
+              height: nth($_publicData, 29);
+              @include jsx-filter(nth($_publicData, 4),nth($_publicData, 4));
+           }
+       }
+   }
+   .rowspace{
+        width: 1%;
+        text-align: $_ct;
+        padding-#{$_lf}:nth($_publicData, 21);
+        height: nth($_publicData, 38);
+        line-height: nth($_publicData, 38);
+        @extend %boxsizing;
+    }
+    //20171028
+    @include jsx-media(nth($_device, 1),nth($_device, 2)){
+        .formitem-name{
+           width: 26%;
+           max-width: countnumC(nth($_publicData, 19), 22);
+           color: nth($_publicColor, 61);
+           padding:nth($_publicData, 22) nth($_publicData, 4);
+           i{
+              color:nth($_publicColor, 49);
+              margin-#{$_rg}:nth($_publicData, 21);
+           }
+       }
+        .formitem-cont{
+           width: 74%;
+           padding-#{$_lf}:nth($_publicData, 26);
+           position:$_rel;
+           &.row3{
+               width: 68%!important;
+               margin-bottom: 20px;
+           }
+           &.row3:nth-last-child(-2n+3){
+               margin-left: 23%;
+           }
+           input{
+               padding:nth($_publicData, 4) nth($_publicData, 22);
+               height: nth($_publicData, 38);
+               line-height: nth($_publicData, 38);
+               border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 62);
+           }
+           textarea{
+               padding:nth($_publicData, 4) nth($_publicData, 22);
+               min-height: countnumAdd(nth($_publicData, 43), 10);
+               border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 62);
+           }
+           .jsx-selects{
+               height: nth($_publicData, 38);
+               line-height: nth($_publicData, 38);
+               border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 62);
+               em{
+                  margin-#{$_tp}:-11px; 
+               }
+               .fa{
+                   color: nth($_publicColor, 62);
+                   #{$_tp}:nth($_publicData, 21);
+                   #{$_rg}:nth($_publicData, 25);
+               }
+           } 
+           .jsx-options{
+               #{$_lf}:nth($_publicData, 26);
+               #{$_rg}:nth($_publicData, 4);
+               #{$_tp}: countnumAdd(nth($_publicData, 36), 1);
+               border: nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 62);
+           }
+           label{
+               position:$_rel;
+               margin-#{$_rg}:nth($_publicData, 27);
+               cursor: nth($_publicCursor, 1);
+               height: nth($_publicData, 38);
+               line-height: nth($_publicData, 38);
+               display: nth($_publicShow, 4);
+               em{
+                  color: nth($_publicColor, 62);
+                  margin-#{$_rg}:nth($_publicData, 20);
+                  vertical-align: nth($_publicVerticalalign, 1);
+                  font-size: nth($_publicData, 30);
+                  @include jsx-transtion(all, .5s);
+                  &.jsx-active{
+                     color:nth($_publicColor, 6);
+                  }
+               }
+               input{
+                  position:$_absol;
+                  #{$_lf}:nth($_publicData, 4);
+                  #{$_tp}:nth($_publicData, 23);
+                  z-index: 2;
+                  width: nth($_publicData, 29);
+                  height: nth($_publicData, 29);
+                  @include jsx-filter(nth($_publicData, 4),nth($_publicData, 4));
+               }
+           }
+       }
+    }
+}

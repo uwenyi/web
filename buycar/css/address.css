@@ -1,0 +1,119 @@
+@charset "utf-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+.clearfix::after{
+	content: "";
+	display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix{
+	zoom: 1;
+}
+li{
+	list-style: none;
+}
+.addcard-box{
+	padding: 20px;
+}
+.cardlist{
+	float: left;
+}
+.cardlist li,.addcard{
+	width: 250px;
+	height: 150px;
+	border: 2px solid #e0e0e0;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+	font-family: "微软雅黑";
+	cursor: pointer;
+}
+.cardlist li:hover,.addcard:hover,.distway div:hover{
+	border: 2px solid #fe913e;
+}
+.addcard{
+	text-align: center;
+	color: #59585a;
+	padding-top: 15px;
+	float: left;
+}
+.addcard p{
+	font-size: 60px;
+	line-height: 60px;
+}
+.addcard span{
+	font-size: 14px;
+}
+.cardlist li{
+	padding: 15px 0px 0px 15px;
+}
+.cardlist li p{
+	font-size: 14px;
+	margin-bottom:10px;
+}
+.cardlist li .username{
+	font-size: 16px;
+	font-weight: bold;
+}
+.cardlist li .tel{
+	margin-top: 15px;
+	font-size: 14px;
+}
+.cardlist li .set-default{
+	color: orange;
+	font-size: 12px;
+}
+.click-point{
+	position: relative;
+}
+.click-point:after{
+	content: "";
+	display: block;
+	width: 10px;
+	height: 6px;
+	background: red;
+	position: absolute;
+	left:210px;
+	top: 10px;
+}
+.click-point:before{
+	content: "";
+	display: block;
+	width: 10px;
+	height: 6px;
+	background: red;
+	position: absolute;
+	left:210px;
+	bottom: 20px;
+}
+.loadmore{
+	display: block;
+	width: 50px;
+	margin: 0 auto;
+	color: orange;
+	cursor: default;
+}
+.distway{
+	margin:0 auto;
+	width: 520px;
+}
+.distway div{
+	width: 200px;
+	height: 50px;
+	border: 2px solid #e0e0e0;
+	float: left;
+	box-sizing: border-box;
+	font-family: "微软雅黑";
+	cursor: pointer;
+	text-align: center;
+	line-height:50px;
+	margin-right: 10px;
+}
+.distway .sel-dist{
+	border: 2px solid #fe913e;
+}

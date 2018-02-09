@@ -1,0 +1,522 @@
+@charset "utf-8";
+/*
+ * 首页样式
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+@import "public";
+@import "css-reset";
+@import "mediascreen";
+@import "header";
+@import "footer";
+@import "banner";
+@import "cardpannel";
+@import "themecamp";
+@import "textlist";
+@import "form";
+@import "bombbox";
+
+.videocontrol{
+        position:$_absol;
+        #{$_tp}:nth($_publicData, 4);
+        #{$_bt}:nth($_publicData, 17);
+        #{$_lf}:nth($_publicData, 4);
+        #{$_rg}:nth($_publicData, 4);
+        &.paused{
+            background:rgba(0,0,0,.5);
+        }
+        i{
+            position:$_absol;
+            #{$_tp}:nth($_publicData, 10);
+            #{$_lf}:nth($_publicData, 10);
+            z-index: 3;
+            color: nth($_publicColor, 1);
+            display: nth($_publicData, 1);
+            font-size: countnumC(nth($_publicData, 33),4);
+            margin-#{$_tp}: -56px;
+            margin-#{$_lf}: -48px;
+            &.fa-play-circle-o{
+                display: nth($_publicShow, 3);
+            }
+        }
+}
+
+//模块标题
+.jsx-sectiontitle{
+	border-#{$_bt}:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 8);
+	position:$_rel;
+	padding-#{$_bt}:nth($_publicData, 42);
+	margin:80px nth($_publicData, 2);
+	color:nth($_publicColor, 6);
+	font-size:nth($_publicData, 41);
+	line-height:nth($_publicData, 41);
+	text-align:$_ct;
+	&::after{
+		content: '';
+		background:url(../images/sectiontitle_icon.png) no-repeat center;
+		width: 120px;
+		height: 19px;
+		display: nth($_publicShow, 3);
+		margin: nth($_publicData, 4) nth($_publicData, 2);
+		position:$_rel;
+		top: 60px;
+	}
+}
+
+//美国留学
+.jsx-usastudy{
+	li{
+		margin-#{$_bt}:nth($_publicData, 29);
+		color: nth($_publicColor, 1);
+		.imgs{
+			width: 65%;
+		}
+		.studycont{
+			width: 35%;
+			text-align: $_ct;
+			font-size: nth($_publicData, 31);
+			h3{
+               font-size: 32px;
+               font-weight: nth($_publicData, 3);
+               margin: nth($_publicData, 38) nth($_publicData, 2);
+			}
+			a{
+				@extend %publicbtn;
+				margin:nth($_publicData, 31) nth($_publicData, 2);
+			}
+			p{
+				margin-#{$_tp}:nth($_publicData, 34);
+				font-size: nth($_publicData, 28);
+			}
+			&.s1{
+				background:nth($_publicColor, 9);
+			}
+			&.s2{
+				background:nth($_publicColor, 10);
+			}
+			&.s3{
+				background:nth($_publicColor, 11);
+			}
+			&.s4{
+				background:nth($_publicColor, 12);
+			}
+		}
+		&:last-child{
+           margin-#{$_bt}:nth($_publicData, 43);
+		}
+	}
+}
+
+//中美互惠生
+.jsx-chstudent{
+	position:$_rel;
+	height:540px;
+	margin-#{$_bt}:countnumC(nth($_publicData, 40), 2);
+	.img-section{
+       width: 32%;
+       &:last-child{
+           display: nth($_publicData,1);
+       }
+	}
+	.text-section{
+		position:$_absol;
+		z-index: 2;
+        width: 34%;
+        padding:nth($_publicData, 43) nth($_publicData, 4);
+        color: lighten(nth($_publicColor, 1), nth($_publicData, 8));
+        text-align: $_ct;
+        &.green{
+           #{$_tp}:countnumAdd(nth($_publicData, 43),5);
+		   #{$_lf}:29%;
+		   background:nth($_publicColor, 14);
+        }
+        &.blue{
+           #{$_tp}:nth($_publicData, 4);
+		   #{$_rg}:nth($_publicData, 4);
+		   background:nth($_publicColor, 15);
+        }
+        h3{
+        	font-size: nth($_publicData, 34);
+            font-weight: nth($_publicData, 3);
+        }
+        > div{
+        	font-size: nth($_publicData, 31);
+        	margin:countnumAdd(nth($_publicData, 42),5) nth($_publicData, 34);
+        	span{
+        		font-size: 140%;
+        		display: nth($_publicShow, 3);
+        		margin-#{$_bt}:nth($_publicData, 27);
+        	}
+        }
+        a{
+        	display: nth($_publicShow, 3);
+        	height: nth($_publicData, 41);
+        	line-height: nth($_publicData, 41);
+        	width: nth($_publicData, 11);
+        	border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 1);
+        	border-radius:nth($_publicData, 18);
+        	padding-#{$_lf}:nth($_publicData, 29);
+        	margin:nth($_publicData, 4) nth($_publicData, 2);
+        	color: lighten(nth($_publicColor, 1), nth($_publicData, 8));
+        	font-size: nth($_publicData, 28);
+        	text-align: $_lf;
+        	&::before{
+        		margin-#{$_rg}:nth($_publicData, 22);
+        		background:url(../images/right_icon.png) no-repeat;
+        		display:nth($_publicShow, 4);
+        		width: nth($_publicData, 28);
+        		height: nth($_publicData, 26);
+        		content: '';
+        	}
+        	+ a{
+        		margin-#{$_tp}:nth($_publicData, 29);
+        	}
+        	&:hover{
+        		background:nth($_publicColor, 53);
+                border-color:nth($_publicColor, 53);
+        	}
+        }
+	}
+}
+
+//美国房地产投资
+.jsx-usahouse{
+	background:nth($_publicColor, 16);
+	padding: nth($_publicData, 43) nth($_publicData, 4);
+	text-align: $_ct;
+	p{
+		margin-#{$_bt}:nth($_publicData, 39);
+	}
+	ul > li{
+	   	margin-#{$_bt}:nth($_publicData, 42); 
+	}
+	h3{
+		margin:nth($_publicData, 4) nth($_publicData, 2) nth($_publicData, 42);
+		font-weight: nth($_publicData, 3);
+		color: nth($_publicColor, 6);
+		font-size: nth($_publicData, 31);
+	}
+	.alinkbtn{
+		@extend %publicbtn-blue;
+		width: countnumC(nth($_publicData, 32),10);
+		margin:nth($_publicData, 4) nth($_publicData, 2);
+	}
+}
+
+//核心团队
+.jsx-teams{
+	li{
+		@extend %boxsizing;
+		width: nth($_publicData, 10);
+		height: countnumC(nth($_publicData, 17),56);
+		padding:nth($_publicData, 4) nth($_publicData, 34);
+		margin-#{$_bt}:nth($_publicData, 42); 
+		//头像
+		.lftphoto{
+			width: 25%;
+			text-align: $_ct;
+			overflow: nth($_publicShow, 1);
+			border-radius:nth($_publicData, 10);
+			border:	nth($_publicData, 20) nth($_publicBorderstyle, 1) nth($_publicColor, 14);
+			@extend %boxsizing;
+			img{
+				height: nth($_publicData, 14);
+			}
+		}
+		//简介
+		.instroduction{
+			width: 75%;
+			padding-#{$_lf}:nth($_publicData, 29);
+			margin-#{$_tp}:nth($_publicData, 26);
+			font-size: nth($_publicData, 28);
+			@extend %boxsizing;
+			.t-name{
+				color: nth($_publicColor, 17);
+			}
+			.t-job{
+				color: nth($_publicColor, 6);
+				margin:nth($_publicData, 22) nth($_publicData, 4) nth($_publicData, 19);
+			}
+			p{
+				font-size: nth($_publicData, 25);
+			}
+		}
+	}
+}
+
+//视频播放
+.jsx-video{
+	margin-#{$_bt}:nth($_publicData, 43);
+	position:$_rel;
+	&:hover{
+		cursor: nth($_publicCursor, 1);
+		i{
+			display: nth($_publicShow, 3);
+		}
+	}
+	.videobox{
+		width: nth($_publicData, 14);
+	}
+}
+
+//主题营
+.jsx-themecamp .scroll-main li {
+    .leftimg{
+          width: countnumAdd(nth($_publicData, 10),nth($_publicData, 5));
+           video{
+                  width: nth($_publicData,14);
+            }
+            .fa{
+                font-size: countnumAdd(nth($_publicData, 43),nth($_publicData, 21));
+                margin-#{$_lf}:-33px ;
+                margin-#{$_tp}:-39px ;
+            }
+            &:hover{
+                cursor: nth($_publicCursor, 1);
+                i{
+                    display: nth($_publicShow, 3);
+                }
+            }
+    }
+    .rightcon {
+        width: countnumPlus(nth($_publicData, 10),nth($_publicData, 5));
+    }
+}
+
+//最新资讯
+.jsx-news{
+	margin-#{$_bt}:nth($_publicData, 43);
+	.news-img{
+		width: 33%;
+		p{
+			margin-#{$_tp}:nth($_publicData, 18); 
+		}
+	}
+	.news-list{
+		width: 67%;
+		padding-#{$_lf}:countnumAdd(nth($_publicData, 42),5); 
+		@extend %boxsizing;
+	}
+}
+//20171026
+@include jsx-media(nth($_device,1),nth($_device,2)){
+    //模块标题
+    .jsx-sectiontitle{
+        padding-#{$_bt}:0.22rem;
+        margin:0.58rem nth($_publicData, 2);
+        font-size:0.36rem;
+        line-height:0.36rem;
+        &::after{
+            background-size: 100%;
+            width: 0.56rem;
+            height: 0.1rem;
+            top: 0.275rem;
+        }
+    }
+    //美国留学
+    .jsx-usastudy{
+        padding: nth($_publicData,4) 4%;
+        li{
+            margin-#{$_bt}:nth($_publicData, 4);
+            .imgs{
+                width: 66.66%;
+                overflow: hidden;
+                img{
+                    width: auto;
+                    height: 3.2rem;
+                }
+            }
+            .studycont{
+                width: 33.34%;
+                font-size: 0.18rem;
+                h3{
+                   font-size: 0.28rem;
+                   line-height: 0.28rem;
+                   margin: 0.22rem nth($_publicData, 2);
+                }
+                a{
+                    width: 0.96rem;
+                    height: 0.96rem;
+                    font-size: 0.24rem;
+                    line-height: 0.28rem;
+                    padding: 0.2rem;
+                    box-sizing: border-box;
+                    border-radius: nth($_publicData,10);
+                    margin:0.18rem nth($_publicData, 2);
+                }
+                p{
+                    margin-#{$_tp}:0.22rem;
+                    font-size: 0.16rem;
+                }
+            }
+            &:last-child{
+               margin-#{$_bt}:0.6rem;
+            }
+        }
+    }
+    //主题营
+    .jsx-themecamp .scroll-main li {
+        .leftimg{
+            display: nth($_publicData,1);
+        }
+        .rightcon {
+            width: nth($_publicData, 14);
+        }
+    }
+    //中美互惠生
+    .jsx-chstudent{
+        position:$_rel;
+        height:auto;
+        margin-#{$_bt}:0.66rem;
+        line-height: 100%;
+        >div{
+            float: left;
+        }
+        .img-section{
+           width: 50%;
+           &:last-child{
+               display: nth($_publicShow,3);
+           }
+        }
+        .text-section{
+            position:static;
+            width: 50%;
+            padding:0.36rem;
+            height: 3.6rem;
+            box-sizing: border-box;
+            h3{
+                font-size: 0.24rem;
+            }
+            > div{
+                font-size: 0.18rem;
+                margin:0.46rem auto 0.24rem;
+                span{
+                    font-size: 140%;
+                    display: nth($_publicShow, 3);
+                    margin-#{$_bt}:nth($_publicData, 4);
+                }
+            }
+            a{
+                display: nth($_publicShow, 3);
+                height: 0.5rem;
+                line-height: 0.5rem;
+                width: 2.3rem;
+                border:nth($_publicData, 15) nth($_publicBorderstyle, 1) #9da870;
+                border-radius:0;
+                padding-#{$_lf}:0.16rem;
+                margin:nth($_publicData, 4) nth($_publicData, 2);
+                color: lighten(nth($_publicColor, 1), nth($_publicData, 8));
+                font-size: 0.18rem;
+                text-align: $_lf;
+                overflow: hidden;
+                background: #FF9900;
+                &::before{
+                    margin-#{$_rg}:0.11rem;
+                    background:url(../images/right_icon.png) no-repeat;
+                    display:nth($_publicShow, 4);
+                    background-size: 100%;
+                    width: 0.15rem;
+                    height: 0.13rem;
+                    content: '';
+                }
+                + a{
+                    margin-#{$_tp}:0.1rem;
+                }
+            }
+        }
+    }
+    //美国房地产投资
+    .jsx-usahouse{
+        padding: 0.5rem nth($_publicData, 4);
+        p{
+            padding: 0 3.4%;
+            margin-#{$_bt}:0.44rem;
+            font-size: 0.18rem;
+        }
+        ul > li{
+            margin-#{$_bt}:nth($_publicData, 4);
+            width: 31.66%;
+            padding: nth($_publicData,4);
+            &:nth-child(2){
+                margin: 0 2.5%;
+            }
+        }
+        h3{
+            margin:0.08rem nth($_publicData, 2) 0.3rem;
+            font-size: 0.18rem;
+        }
+        .alinkbtn{
+            width: 46%;
+            margin:nth($_publicData, 4) nth($_publicData, 2) 0.1rem;
+            padding: nth($_publicData, 4);
+            font-size: 0.28rem;
+            height: 0.56rem;
+            line-height: 0.56rem;
+            border-radius: 0.02rem;
+        }
+    }
+    //核心团队
+    .jsx-teams{
+        li{
+            width: 100%;
+            height: auto;
+            padding:nth($_publicData, 4) 4%;
+            margin-#{$_bt}:nth($_publicData, 42);
+            line-height: 100%;
+            //头像
+            .lftphoto{
+                width: 25%;
+                border: 2px nth($_publicBorderstyle, 1) nth($_publicColor, 14);
+                img{
+                    height: nth($_publicData, 14);
+                }
+            }
+            //简介
+            .instroduction{
+                width: 75%;
+                padding-#{$_lf}:4%;
+                margin-#{$_tp}:1.5%;
+                .t-name{
+                    font-size: 0.32rem;
+                }
+                .t-job{
+                    font-size: 0.24rem;
+                    margin:0.12rem nth($_publicData, 4);
+                }
+                p{
+                    font-size: 0.18rem;
+                    color: #353535;
+                }
+            }
+        }
+    }
+    .videocontrol{
+        i{
+            font-size: 1.12rem;
+            margin-#{$_tp}: -0.56rem;
+            margin-#{$_lf}: -0.56rem;
+        }
+    }
+    //视频播放
+    .jsx-video{
+        margin-#{$_bt}:nth($_publicData, 4);
+    }
+    //最新资讯
+    .jsx-news{
+        font-size: 0.24rem;
+        margin-#{$_bt}:nth($_publicData, 4);
+        padding: 0 4%;
+        .news-img{
+            width: 100%;
+            p{
+                margin-#{$_tp}:0.24rem;
+                margin-#{$_bt}:0.44rem; 
+            }
+        }
+        .news-list{
+            width: 100%;
+            padding-#{$_lf}:nth($_publicData, 4);
+            line-height: 0.48rem;
+        }
+    }
+}

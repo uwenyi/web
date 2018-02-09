@@ -1,0 +1,81 @@
+@charset "utf-8";
+/*
+ * 步骤样式模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+%stepstyle{
+   background:nth($_publicColor, 1);
+   padding:countnumC(nth($_publicData, 40), 2) nth($_publicData, 4) nth($_publicData, 38);
+   .applytime-ul{
+      //背景色
+      &.cor-red{
+         .contentbox{
+            background:nth($_publicColor, 26);
+         }
+      }
+      &.cor-zise{
+         .contentbox{
+            background:nth($_publicColor, 25);
+         }
+      }
+      &.cor-green{
+         .contentbox{
+            background:nth($_publicColor, 54);
+         }
+      }
+      //列表
+      li{
+         width: 19.4%;
+         border-#{$_tp}:nth($_publicData, 20) nth($_publicBorderstyle, 3) nth($_publicColor, 36);
+         position:$_rel;
+         margin:nth($_publicData, 4) .3% nth($_publicData, 43);
+         //小图标
+         &::before{
+            content:'';
+            background:url(../images/position_icon.png) center no-repeat;
+            background-size:cover;
+            position:$_absol;
+            z-index: 2;
+            #{$_tp}:countnumC(nth($_publicData, 29),-1);
+            #{$_lf}:nth($_publicData, 10);
+            margin-#{$_lf}:countnumC(nth($_publicData, 23),-1);
+            width: nth($_publicData, 31);
+            height: nth($_publicData, 35);
+         }
+         //内容框
+         .contentbox{
+            margin-#{$_tp}:nth($_publicData, 34);
+            margin-#{$_rg}:nth($_publicData, 29);
+            color: nth($_publicColor, 1);
+            padding:nth($_publicData, 28);
+            border-radius:nth($_publicData, 20);
+            min-height: nth($_publicData, 35);
+            @extend %boxsizing;
+         }
+         //时间节点
+         time{
+            display: nth($_publicShow, 3);
+            width: nth($_publicData, 14);
+            text-align: $_ct;
+            position:$_absol;
+            #{$_tp}:countnumC(nth($_publicData, 42), -1);
+            #{$_lf}:nth($_publicData, 4);
+            font-size: nth($_publicData, 27);
+         }
+      }
+      //第一行
+      &:nth-of-type(odd){
+         border-#{$_rg}:nth($_publicData, 20) nth($_publicBorderstyle, 3) nth($_publicColor, 36);
+         margin-#{$_tp}:countnumC(nth($_publicData, 38), 3);
+      }
+      //第二行
+      &:nth-of-type(even){
+         border-#{$_lf}:nth($_publicData, 20) nth($_publicBorderstyle, 3) nth($_publicColor, 36);
+         .contentbox{
+            margin-#{$_lf}:nth($_publicData, 29);
+            margin-#{$_rg}:nth($_publicData, 4);
+         }
+      }
+   }
+}

@@ -1,0 +1,182 @@
+@charset "utf-8";
+/*
+ * 底部模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+.jsx-footer{
+    padding:nth($_publicData, 43) nth($_publicData, 4);
+    height: countnumC(nth($_publicData, 38),10);
+    background: nth($_publicColor, 7);
+    color: lighten(nth($_publicColor, 1), nth($_publicData, 10));
+    //一级列表
+    li{
+       width: nth($_publicData, 9);
+       padding-#{$_rg}:80px;
+       @extend %boxsizing;
+       &:last-child{
+       	  padding-#{$_rg}:nth($_publicData, 4);
+       }
+       //公共a链接
+       a{
+       	  &:hover{
+       	  	text-decoration: underline;
+       	  	color:lighten(nth($_publicColor, 1), nth($_publicData, 10))!important;
+       	  }
+       }
+       //一级列表标题
+       h3{
+       	  color:lighten(nth($_publicColor, 1), nth($_publicData, 10));
+       	  font-size: nth($_publicData, 31);
+       	  font-weight: nth($_publicData, 3);
+       	  margin-#{$_bt}: nth($_publicData, 36);
+       }
+       //公共二级列表
+       .pubul{
+       	  li{
+                   margin-#{$_bt}:nth($_publicData, 23);
+                   width: nth($_publicData, 2);
+                   color: darken(nth($_publicColor, 1), nth($_publicData, 10));
+                   a{
+                      color: darken(nth($_publicColor, 1), nth($_publicData, 10));
+                   }
+       	  }
+       	  //相关服务二级列表
+       	  &.service{
+       	  	 li{
+       	  	 	&::before{
+       	  	 	   content: '';
+       	  	 	   display: nth($_publicShow, 4);
+       	  	 	   width: nth($_publicData, 18);
+       	  	 	   height: nth($_publicData, 18);
+       	  	 	   border-radius: nth($_publicData, 10);
+       	  	 	   background:darken(nth($_publicColor, 1), nth($_publicData, 10));
+       	  	 	   overflow: nth($_publicShow, 1);
+       	  	 	   margin-#{$_rg}:nth($_publicData, 22);
+       	  	 	   vertical-align: nth($_publicData, 17);
+       	  	 	}
+       	  	 	&:hover{
+       	  	 	  &::before{
+       	  	 	  	 background:lighten(nth($_publicColor, 1), nth($_publicData, 10));
+       	  	 	  }
+       	  	 	}
+       	  	 }
+       	  }
+       	  //公共二级列表图片
+       	  img{
+       	  	 width: 110px;
+       	  	 margin-#{$_tp}:nth($_publicData, 23);
+       	  }
+       }
+       //合作机构二级列表
+       .organization{
+       	  a{
+       	  	 color: darken(nth($_publicColor, 1), nth($_publicData, 10));
+       	  	 display: nth($_publicShow, 3);
+       	  	 width: nth($_publicData, 9);
+       	  	 padding-#{$_rg}: nth($_publicData, 35);
+       	  	 text-align: $_ct;
+                   @extend %boxsizing;
+       	  	 span{
+       	  	 	overflow: nth($_publicShow, 1);
+       	  	 	text-overflow:  ellipsis;
+       	  	 	white-space: nowrap;
+       	  	 	display: nth($_publicShow, 3);
+       	  	 	margin-#{$_tp}: nth($_publicData, 25);
+       	  	 } 
+       	  }
+       }
+    }
+}
+//20171028
+@include jsx-media(nth($_device,1),nth($_device,2)){
+    body{
+        -webkit-tap-highlight-color: transparent;
+    }
+    .jsx-footer{
+        font-size: 0.18rem;
+        padding: 4% 8%;
+        height: auto;
+        background: nth($_publicColor, 7);
+        color: lighten(nth($_publicColor, 1), nth($_publicData, 10));
+        //一级列表
+        li{
+           width: 100%;
+           padding-#{$_rg}:nth($_publicData, 4);
+           margin-#{$_bt}:0.5rem;
+           //公共a链接
+           a{
+              &:hover{
+                text-decoration: none;
+                color:darken(nth($_publicColor, 1), nth($_publicData, 10))!important;
+              }
+           }
+           //一级列表标题
+           h3{
+              font-size: 0.28rem;
+              margin-#{$_bt}: 0.36rem;
+           }
+           //公共二级列表
+           .pubul{
+               position: relative;
+              li{
+                   margin-#{$_bt}:0.18rem;
+                   width: nth($_publicData, 2);
+                   color: darken(nth($_publicColor, 1), nth($_publicData, 10));
+                   a{
+                      color: darken(nth($_publicColor, 1), nth($_publicData, 10));
+                   }
+              }
+              //相关服务二级列表
+              &.service{
+                 li{
+                    &::before{
+                       content: '';
+                       display: nth($_publicShow, 4);
+                       width: nth($_publicData, 18);
+                       height: nth($_publicData, 18);
+                       border-radius: nth($_publicData, 10);
+                       background:darken(nth($_publicColor, 1), nth($_publicData, 10));
+                       overflow: nth($_publicShow, 1);
+                       margin-#{$_rg}:nth($_publicData, 22);
+                       vertical-align: nth($_publicData, 17);
+                    }
+                    &:hover{
+                      &::before{
+                         background:darken(nth($_publicColor, 1), nth($_publicData, 10));
+                      }
+                    }
+                 }
+              }
+              //公共二级列表图片
+              img{
+                 width: 100%;
+                 margin-#{$_tp}:0;
+              }
+           }
+           //合作机构二级列表
+           .organization{
+              margin-#{$_tp}:0.3rem;
+              a{
+                 width: 30%;
+                 padding-#{$_rg}: 0;
+                 &:nth-child(3n+2){
+                     margin: 0 5%;
+                 }
+                 span{
+                     font-size: 0.16rem;
+                    margin-#{$_tp}: 0.16rem;
+                 } 
+              }
+           }
+           &:last-child{
+              li:last-child{
+                   width: 18.3%;
+                   position: absolute;
+                   bottom: 0.3rem;
+                   right: 0.1rem;
+              }
+          }
+        }
+    }
+}

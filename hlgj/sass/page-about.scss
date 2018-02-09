@@ -1,0 +1,113 @@
+@charset "utf-8";
+/*
+ * 关于合力样式
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+@import "public";
+@import "css-reset";
+@import "mediascreen";
+@import "header";
+@import "footer";
+@import "article";
+@import "form";
+@import "bombbox";
+
+//banner
+.jsx-topbanner{
+	@extend %subbanner;
+}
+
+//联系方式
+.jsx-contact{
+	margin:nth($_publicData, 4) countnumAdd(nth($_publicData, 43),60) countnumPlus(nth($_publicData, 43),5);
+	border:nth($_publicData, 17) nth($_publicBorderstyle, 2) nth($_publicColor, 19);
+	padding:nth($_publicData, 41) nth($_publicData, 4);
+	text-align:$_ct;
+	.logo{
+		width: countnumC(nth($_publicData, 27),10);
+		display: nth($_publicShow, 3);
+		margin:nth($_publicData, 4) nth($_publicData, 2);
+	}
+	.contactstyle{
+		margin-#{$_lf}:30%;
+		text-align: $_lf;
+        p{
+			color: nth($_publicColor, 18);
+			margin-#{$_tp}:nth($_publicData, 39);
+			margin-#{$_bt}:nth($_publicData, 30);
+			span{
+				margin-#{$_rg}:nth($_publicData, 37);
+			    em{
+			    	color: nth($_publicColor, 6);
+			    }
+			    a{
+			    	color: nth($_publicColor, 18);
+			    	&:hover{
+			    		color: nth($_publicColor, 6);
+			    	}
+			    }
+			} 
+	    }
+	    img{
+			text-align: $_lf;
+			width: countnumAdd(nth($_publicData, 43),40); 
+		}
+	}
+}
+
+//20171029
+@include jsx-media(nth($_device,1),nth($_device,2)){
+    .jsx-topbanner{
+        margin:0;
+        margin-top: 0.96rem;
+    }
+    .jsx-article{
+        margin: 0 0.5rem 0;
+        h1{
+            font-size: 0.36rem;
+            margin-top: 0.1rem;
+         }
+        .contain{
+                margin-top: 0.1rem;
+                font-size: 0.2rem;
+                width: 100%;
+            }
+         .contain p{
+                margin-bottom: 0.1rem;
+                text-indent: 0.5rem;
+             }
+    }
+    .jsx-contact{
+        margin: 0 0 0.1rem;
+        padding: 0;
+        border:0;
+        .logo{
+             width: 3.2rem;
+         }
+         .contactstyle{
+            margin: 0 auto; 
+            text-align: center;      
+        }
+        .contactstyle {
+            p{
+            margin:0.1rem 0rem;
+            text-align: left;
+              }       
+         }
+         .contactstyle{
+             p{
+                 span{
+                    display: block;
+                    font-size: 0.2rem;
+                    margin-left: 30%;
+                  }
+             }
+         } 
+         .contactstyle{
+             img{
+                width: 2.2rem;
+              }
+         }
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地址选择</title>
+		<script src="js/vue.js"></script>
+  	    <script type="text/javascript" src="js/axios.min.js" ></script>
+		<link href="css/theme-chalk/index.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="css/address.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<div class="addcard-box clearfix">
+				<ul class="cardlist clearfix">
+					<li :class="{'click-point':cardId==index}" v-for='(item,index) in filterAddress' @click="cardId=index" >
+						<p class="username">{{item.addressName}}</p>
+						<p class="addr">{{item.streetName}}</p>
+						<p class="tel">{{item.tel}}</p>
+						<span class="set-default" v-if="!item.isDefault" v-show="cardId==index" @click="defaultCard(item.addressId)">设为默认</span>
+						<span class="set-default" v-if="item.isDefault">默认地址</span>
+					</li>
+					<div class="addcard">
+						<p>+</p>
+						<span>添加地址</span>
+					</div>
+				</ul>
+				<p class="loadmore" @click="loadMore">{{moreFlag?"更多":"收起"}}</p>
+			</div>
+			<div class="distway clearfix">
+				<div class="standard" :class="{'sel-dist':sel==1}" @click="sel=1">
+					标准配送
+				</div>
+				<div class="senior" :class="{'sel-dist':sel==2}" @click="sel=2">
+					高级配送
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/addr.js" ></script>
+</html>

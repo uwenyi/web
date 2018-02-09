@@ -1,0 +1,252 @@
+@charset "utf-8";
+/*
+ * 头部导航菜单模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+.jsx-header{
+	height:80px;
+	line-height:80px;
+	background:rgba(255,255,255,.75);
+	position:$_fixed;
+	#{$_lf}:nth($_publicData, 4);
+	#{$_rg}:nth($_publicData, 4);
+	#{$_tp}:nth($_publicData, 4);
+	z-index:999;
+	@include jsx-transtion(all, .5s);
+	&.activing{
+       background:rgba(255,255,255,1);
+       box-shadow:nth($_publicData, 4) nth($_publicData, 4) nth($_publicData, 29) rgba(0,0,0,.15);
+	}
+	a{
+		display: nth($_publicShow , 3);
+	}
+	//搜索模块
+	.jsx-search{
+		margin-#{$_lf}: nth($_publicData, 23);
+		.searchinput{
+			display: nth($_publicShow, 4);
+			width: nth($_publicData, 4);
+			overflow: nth($_publicShow, 1);
+			@include jsx-transtion($name:width,$time:0.5s);
+			&.jsx-active{
+			    width: countnumC(nth($_publicData, 32),10);
+		    }
+		    input{
+		    	width: nth($_publicData, 14);
+		    }
+		    input::-webkit-input-placeholder{
+		    	font-size: nth($_publicData, 23);
+		    }
+		}
+		span{
+			vertical-align: $_md;
+			&.searchicon{
+               margin-#{$_lf}: nth($_publicData, 20);
+               color: nth($_publicColor, 3);
+               font-size: nth($_publicData, 27); 
+               &:hover{
+                 cursor: nth($_publicCursor, 1);
+                 color: lighten(nth($_publicColor, 3), 10%);
+               }
+			}
+		}
+	}
+	//菜单模块
+	nav{
+	   li{
+	   	  display: nth($_publicShow , 4);
+          padding: nth($_publicData, 4) nth($_publicData, 28); 
+          position:$_rel;
+          > a{
+             color: nth($_publicColor, 2);
+          }
+          &.jsx-active,&:hover{
+          	 > a{
+          	 	color: nth($_publicColor, 1);
+          	 }
+          	 i{
+          	    display: nth($_publicShow, 3);
+          	 }
+          }
+          i{
+          	display: nth($_publicData, 1);
+          	background:nth($_publicColor, 6);
+          	position:$_absol;
+          	left: nth($_publicData, 4);
+          	right: nth($_publicData, 4);
+          	top: nth($_publicData, 4);
+          	bottom: nth($_publicData, 4);
+          	z-index: -1;
+          }
+          > div{
+          	 width: countnumC(nth($_publicData, 10), 3);
+          	 background:nth($_publicColor, 6);
+          	 position:$_absol;
+          	 #{$_lf}:nth($_publicData, 4);
+          	 #{$_tp}:countnumAdd(nth($_publicData, 43), 10);
+          	 span{
+          	 	padding: nth($_publicData, 4) nth($_publicData, 28);
+          	 	line-height: nth($_publicData, 4);
+          	 	display: nth($_publicShow, 3);
+          	 	cursor: nth($_publicCursor, 1);
+          	 	@include jsx-filter(0,0);
+          	 	@include jsx-transtion(all, .5s);
+          	 	a{
+          	 	   color: nth($_publicColor, 1);
+          	 	}
+          	 	&:hover{
+          	 		background:darken(nth($_publicColor, 6), nth($_publicData, 6));
+          	 		a{
+          	 	       color: nth($_publicColor, 1);
+          	 	    }
+          	 	}
+          	 }
+          }
+          &:hover{
+          	i{
+               @each $brow in $_browser{
+                  #{$brow}animation: flipinx 1s ease-in;
+               }
+               animation: flipinx 1s ease-in;
+          	}
+          	> div span{
+          		@include jsx-filter(100,1);
+          	    padding: nth($_publicData, 24) nth($_publicData, 28);
+          	 	line-height: nth($_publicData, 34);
+            }
+          }
+	   }	
+	}
+}
+@include jsx-media(320px,991px){
+    .jsx-header{
+        height:0.96rem;
+        line-height:0.96rem;
+        background:rgba(255,255,255,1);
+        position:$_fixed;
+        #{$_lf}:nth($_publicData, 4);
+        #{$_rg}:nth($_publicData, 4);
+        #{$_tp}:nth($_publicData, 4);
+        z-index:999;
+        @include jsx-transtion(all, .5s);
+        &.activing{
+           box-shadow:nth($_publicData, 4) nth($_publicData, 4) nth($_publicData, 29) rgba(0,0,0,.15);
+        }
+        .jsx-logo{
+            display: nth($_publicShow , 3);
+            margin-#{$_tp}:0.16rem ;
+            margin-#{$_lf}:0.3rem ;
+            img{
+                display: nth($_publicShow,3);
+                width: 1.44rem;
+                height: 0.58rem;
+            }
+        }
+        //搜索模块
+        .jsx-search{
+            margin-#{$_lf}: nth($_publicData, 23);
+            .searchinput{
+                display: nth($_publicShow, 4);
+                width: nth($_publicData, 4);
+                overflow: nth($_publicShow, 1);
+                @include jsx-transtion($name:width,$time:0.5s);
+                &.jsx-active{
+                    width: countnumC(nth($_publicData, 32),10);
+                }
+                input{
+                    width: nth($_publicData, 14);
+                }
+                input::-webkit-input-placeholder{
+                    font-size: nth($_publicData, 23);
+                }
+            }
+            span{
+                vertical-align: $_md;
+                &.searchicon{
+                   margin-#{$_lf}: nth($_publicData, 20);
+                   color: nth($_publicColor, 3);
+                   font-size: nth($_publicData, 27); 
+                   &:hover{
+                     cursor: nth($_publicCursor, 1);
+                     color: lighten(nth($_publicColor, 3), 10%);
+                   }
+                }
+            }
+        }
+        //菜单模块
+        nav{
+            width: 28%;
+            padding-top: 0.96rem;
+           li{
+              display: nth($_publicData , 1);
+              width: nth($_publicData,14);
+              padding: nth($_publicData, 4);
+              text-align: $_ct;
+              position:$_rel;
+              > a{
+                 color: nth($_publicColor, 2);
+              }
+              &.jsx-active,&:hover{
+                 > a{
+                    color: nth($_publicColor, 1);
+                 }
+              }
+              i{
+                display: nth($_publicShow, 3);
+                background:nth($_publicColor, 6);
+                position:$_absol;
+                left: nth($_publicData, 4);
+                right: nth($_publicData, 4);
+                top: nth($_publicData, 4);
+                bottom: nth($_publicData, 4);
+                z-index: -1;
+              }
+              > div{
+                 width: countnumC(nth($_publicData, 10), 2.7);
+                 background:nth($_publicColor, 6);
+                 position:$_absol;
+                 #{$_lf}:nth($_publicData, 2);
+                 #{$_tp}:nth($_publicData, 4);
+                 #{$_rg}:nth($_publicData,14);
+                 span{
+                    padding: nth($_publicData, 4) nth($_publicData, 28);
+                    line-height: nth($_publicData, 4);
+                    display: nth($_publicShow, 3);
+                    cursor: nth($_publicCursor, 1);
+                    @include jsx-filter(0,0);
+                    @include jsx-transtion(none,none);
+                    a{
+                       color: nth($_publicColor, 1);
+                    }
+                    &:hover{
+                        background:darken(nth($_publicColor, 6), nth($_publicData, 6));
+                        a{
+                           color: nth($_publicColor, 1);
+                        }
+                    }
+                 }
+              }
+              &:hover{
+                i{
+                   @each $brow in $_browser{
+                      #{$brow}animation: flipinx 1s ease-in;
+                   }
+                   animation: flipinx 1s ease-in;
+                }
+                > div span{
+                    @include jsx-filter(100,1);
+                    padding: 0.16rem;
+                    line-height: 0.6rem;
+                    border-#{$_bt}: 1px nth($_publicBorderstyle,1) nth($_publicColor,1);
+                }
+              }
+           }
+           &:hover,&:active{
+               li{
+                    display: nth($_publicShow,4);
+                }
+           }  
+        }
+    }
+}

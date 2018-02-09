@@ -1,0 +1,67 @@
+@charset "utf-8";
+/*
+ * 竖排tab选项卡模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+%jsx-tabMenus{
+   //tab菜单
+   .tab-nav{
+       width: countnumPlus(nth($_publicData, 7),2%);
+       .navli{
+            display: nth($_publicShow, 3);
+            height: nth($_publicData, 40);
+            line-height: nth($_publicData, 40);
+            text-align: $_ct;
+            font-size: nth($_publicData, 27);
+            margin-#{$_bt}:nth($_publicData, 21);
+            margin-#{$_rg}:nth($_publicData, 21);
+            background:nth($_publicColor, 1);
+            &.cor-red{
+               color: nth($_publicColor, 26);
+               &.jsx-active{
+                    background:nth($_publicColor, 26);
+               }
+            }
+            &.cor-blue{
+               color: nth($_publicColor, 27);
+               &.jsx-active{
+                 background:nth($_publicColor, 27);
+               }
+            }
+            &.cor-orange{
+               color: nth($_publicColor, 31);
+               &.jsx-active{
+                 background:nth($_publicColor, 31);
+               }
+            }
+            &.jsx-active{
+               color: nth($_publicColor, 1);
+            }
+       }
+   }
+   //tab选项卡内容
+   .tab-show{
+         width:countnumAdd(nth($_publicData, 12),2%);
+         background:nth($_publicColor, 1);
+         padding:nth($_publicData, 34) nth($_publicData, 26);
+         height: countnumC(nth($_publicData, 16),261);
+         overflow-y: nth($_publicData, 2);
+         @extend %boxsizing;
+         &.smll-hgt{
+            height: countnumC(nth($_publicData, 29),17);
+         }
+         li{
+            display: nth($_publicData, 1);
+            font-size: nth($_publicData, 27);
+            &.jsx-active{
+               display: nth($_publicShow, 3);
+            }
+            p{
+               margin-#{$_rg}:nth($_publicData, 42);
+               line-height: nth($_publicData, 33);
+               @extend %texttypestyle;
+            }
+         }
+   }
+}

@@ -1,0 +1,76 @@
+@charset "utf-8";
+/*
+ * 纯文字(新闻)列表模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+.jsx-textlist{
+    position:$_rel;
+    margin-bottom: nth($_publicData, 20);
+    //标题内容
+    .tl-name{
+      display: nth($_publicShow, 4);
+      //只显示一行
+      &.oneline{
+         overflow:nth($_publicShow, 1);
+         text-overflow: ellipsis;
+         white-space: nowrap;
+      }
+      //80%的宽度
+      &.width-8{
+         width: nth($_publicData, 12);
+      }
+      @extend %texttypestyle;
+    }
+    //时间日期
+    .tl-time{
+       position:$_absol;
+       #{$_rg}: nth($_publicData, 4);
+       #{$_tp}: nth($_publicData, 4);
+       max-width: nth($_publicData, 7);
+       color: nth($_publicColor, 4);
+       display: nth($_publicData, 3);
+       text-align: $_rg;
+    }
+    a{
+      color: nth($_publicColor, 2);
+      &:hover{
+         color: nth($_publicColor, 6);
+      }
+    }
+    .listdetail{
+        display: nth($_publicData, 1);
+        padding-#{$_tp}:nth($_publicData, 21);
+        padding-#{$_lf}:nth($_publicData, 28);
+    }
+    &.jsx-active{
+        .listdetail{
+           display: nth($_publicShow, 3);
+        }
+    }
+}
+//20171028
+@include jsx-media(nth($_device,1),nth($_device,2)){
+    .jsx-textlist{
+        position:$_rel;
+        margin-bottom: nth($_publicData, 4);
+        //标题内容
+        .tl-name{
+          width: 100% !important;
+        }
+        //时间日期
+        .tl-time{
+           display: none;
+        }
+        .listdetail{
+            display: nth($_publicData, 1);
+            padding-#{$_tp}:nth($_publicData, 21);
+            padding-#{$_lf}:nth($_publicData, 28);
+        }
+        &.jsx-active{
+            .listdetail{
+               display: nth($_publicShow, 3);
+            }
+        }
+    }
+}

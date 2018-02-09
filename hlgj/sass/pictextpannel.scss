@@ -1,0 +1,58 @@
+@charset "utf-8";
+/*
+ * 图片文字列表面板模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+.jsx-courselist{
+   background:nth($_publicColor, 1);
+   margin-#{$_bt}:countnumC(nth($_publicData, 39),2);
+   margin-#{$_tp}:nth($_publicData, 43);
+   li > div{
+      width: nth($_publicData, 10);
+      //文字列表
+      &.text{
+         padding:nth($_publicData, 38) nth($_publicData, 42);
+         font-size: nth($_publicData, 27);
+         @extend %boxsizing;
+         &.p2{
+           padding-#{$_rg}:countnumC(nth($_publicData, 43),2); 
+         }
+         dt{
+            margin-#{$_bt}:nth($_publicData, 32);
+         }
+         dd{
+            margin-#{$_bt}:nth($_publicData, 22);
+            @extend %texttypestyle;
+         }
+      }
+      //图片信息
+      &.imgs{
+         position:$_rel;
+         .img-text{
+            position:$_absol;
+            #{$_tp}:nth($_publicData, 4);
+            #{$_bt}:nth($_publicData, 4);
+            #{$_lf}:nth($_publicData, 4);
+            #{$_rg}:nth($_publicData, 4);
+            background:rgba(0,0,0,.6);
+            color: nth($_publicColor, 1);
+            &.p1{
+               padding-#{$_tp}:nth($_publicData, 39);
+               padding-#{$_lf}:countnumC(nth($_publicData, 21),8);
+            }
+            &.p2{
+               padding-#{$_tp}:nth($_publicData, 43);
+               padding-#{$_lf}:countnumC(nth($_publicData, 40),2);
+            }
+            dt{
+               font-size: nth($_publicData, 30);
+               margin-#{$_bt}:nth($_publicData, 24);
+            }
+            dd{
+               margin-#{$_bt}:nth($_publicData, 24);
+            }
+         }
+      }
+   }
+}

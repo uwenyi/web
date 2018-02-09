@@ -1,0 +1,41 @@
+@charset "utf-8";
+/*
+ * 媒体查询适配模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+//手机屏幕
+@include jsx-media(320px,767px){
+    .jsx-wrapcontent{
+        width: nth($_publicData, 14);
+        padding: nth($_publicData, 4);
+        @include boxsizing;
+    }
+}
+//平板、pad屏幕
+@include jsx-media(768px,991px){
+    .jsx-wrapcontent{
+        width: nth($_publicData, 14);
+        padding: nth($_publicData, 4);
+        @include boxsizing;
+    }
+}
+//pc小屏
+@include jsx-media(992px,1199px){
+    .jsx-wrapcontent{
+        width: nth($_publicData, 13);
+    }
+    //在线留言悬浮框按钮
+    .jsx-commentsbox .abtn{
+        padding:nth($_publicData, 20);
+        font-size: nth($_publicData, 23);
+        .fa{
+            margin-#{$_lf}: nth($_publicData, 19);
+        }
+    }
+    .jsx-commentsbox > .fa{
+        font-size: nth($_publicData, 28);
+        #{$_rg}:nth($_publicData, 24);
+        #{$_tp}:countnumAdd(nth($_publicData, 20),1);
+    }
+}

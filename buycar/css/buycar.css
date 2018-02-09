@@ -1,0 +1,223 @@
+*{margin: 0;padding: 0;}
+a{
+	color: #404040;
+}
+a:hover{
+	text-decoration: none;
+	color: #404040;
+}
+.clearfix::after{
+	content: "";
+	display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix{
+	zoom: 1;
+}
+
+.header{
+	margin: 20px 0;
+}
+.header legend{
+	text-align: center;
+	font-size: 16px;
+	padding: 0 20px;
+	color: #6c6c6c;
+	width: auto;
+	border-bottom: none;
+}
+.header fieldset{
+	border:none ;
+	border-top: 1px #ccc solid;
+}
+.table > thead > tr.active > th{
+	background: #626262;
+	border: 0;
+	color: #fff;
+	height: 50px;
+	vertical-align: middle;
+}
+.table > tbody > tr > td,.table > tfoot > tr > td{
+	vertical-align: middle;
+}
+
+table th{
+	text-align: center;
+}
+table td{
+	text-align: center;
+}
+.msg-gap{
+	width: 60%;
+}
+table .goleft{
+	text-align: left;
+}
+
+.select-btn{
+	display:inline-block;
+	width: 16px;
+	height: 16px;
+	border-radius: 20px;
+	border: 1px solid #afafaf;
+	vertical-align: middle;
+	margin: 0 20px;
+	
+}
+dl{
+	display:inline-block;
+	vertical-align: middle;
+	margin: 0;
+	
+}
+dl dt img{
+	width: 60px;
+	height: 60px;
+}
+dl dt,dl dd{
+	/*display: inline-block;
+	vertical-align:top ;*/
+	float: left;
+	margin-right: 10px;
+}
+dl dd h5{
+	float: left;
+	margin: 0;
+	font-weight: bold;
+}
+dl dd .sp{
+	margin-bottom: 30px;
+}
+dl dd .clearleft{
+	clear: left;
+}
+dl .gift{
+	float: left;
+	margin-top: -3px;
+}
+dl span{
+	display: block;
+	color: #ccc;
+	margin-left: 20px;
+}
+.add-cut input[type="text"]{
+	text-align: center;
+	width: 50px;
+	outline: none;
+}
+.add-cut button{
+	background:none;
+	border: none;
+	color: #6c6c6c;
+	outline: none;
+	font-size: 20px;
+	padding: 0;
+	vertical-align: middle;
+}
+.del-icon{
+	cursor: pointer;
+}
+.buy-btn{
+	width: 150px;
+	height: 40px;
+	background: #d1434f;
+	outline: none;
+	border: none;
+	color: #fff;
+}
+.select-all{
+	color: #fa9240;
+	margin-right: 10px;
+}
+.select-all:hover{
+	color: #fa9240;
+}
+.select-btn svg{
+	display: none;
+}
+.choose{
+	border: none;
+}
+.choose svg{
+	display: block;
+}
+.st0{fill:#FF5000;}
+.st1{fill:#FFFFFF;}
+/*鼠标点击*/
+.choose-all{
+	position: relative;
+}
+.choose-all:after{
+	content: "";
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: #FF5000;
+	position: absolute;
+	border-radius: 8px;
+	left:0;
+	top: 0;
+	right:0;
+	bottom: 0;
+	margin: auto;
+	
+}
+tfoot span{
+	cursor: default;
+}
+.confirmbox{
+	width:500px;
+	height: 300px;
+	background: #fff;
+	border:1px solid #626262;
+	padding: 30px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom: 0;
+	margin: auto;
+	z-index: 6;
+	display: none;
+}
+.confirmbox p{
+	text-align: center;
+	font-size: 26px;
+	margin-top: 50px;
+	transition: 1s;
+}
+.yes,.no{
+	width: 150px ;
+	height: 50px;
+	border:1px solid #626262;
+	line-height: 50px;
+	text-align: center;
+	color: #626262;
+	cursor: default;
+}
+.no{
+	background: #626262;
+	color: #fff;
+}
+.ctrl-del-bar{
+	margin-top: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+.mask-black{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #000000;
+	opacity: 0.5;
+	z-index: 3;
+	transition: 1s;
+}
+.show-confirmbox{
+	display: block;
+}

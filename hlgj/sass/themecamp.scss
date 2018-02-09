@@ -1,0 +1,230 @@
+@charset "utf-8";
+/*
+ * 主题营模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+ //右下角左右切换按钮
+ %jsx-btnarray{
+    width: nth($_publicData, 42);
+    height: nth($_publicData, 42);
+    background:rgba(17,130,197,.7);
+    cursor: nth($_publicCursor, 1);
+    position:$_absol;
+    #{$_bt}:nth($_publicData, 4);
+    &.prebtn{
+         #{$_rg}:countnumAdd(nth($_publicData, 42),2);
+         &::after{
+             background:url(../images/chevronleft_icon.png) center no-repeat;
+             #{$_lf}:nth($_publicData, 26);
+         }
+    }
+    &.nextbtn{
+        #{$_rg}:nth($_publicData, 4);
+        &::after{
+             background:url(../images/chevronright_icon.png) center no-repeat;
+             #{$_rg}:nth($_publicData, 26);
+        }
+    }
+    &::after{
+        content: '';
+        display: nth($_publicShow, 3);
+        width: countnumPlus(nth($_publicData, 35),1);
+        height: countnumPlus(nth($_publicData, 35),1);
+        position:$_absol;
+        #{$_tp}:nth($_publicData, 21);
+    }
+    &:hover{
+        background:rgba(244,124,8,.7);
+    }
+ }
+
+.jsx-themecamp{
+  margin:nth($_publicData, 4) nth($_publicData, 2) nth($_publicData, 43);
+  position:$_rel;
+  //左右切换按钮
+  .chevron{
+       padding:nth($_publicData, 38) nth($_publicData, 25);
+       position:$_absol;
+       #{$_tp}:nth($_publicData, 10);
+       z-index: 3;
+       width: nth($_publicData, 35);
+       height: 64px;
+       display: nth($_publicShow, 3);
+       margin-#{$_tp}: -72px;
+       border-radius:nth($_publicData, 20);
+       @include  jsx-filter(50,.5);
+       &.pre{
+         #{$_lf}:nth($_publicData, 41);
+         background:url(../images/chevronleft_icon.png) center no-repeat;
+       }
+       &.next{
+         #{$_rg}:nth($_publicData, 41);
+         background:url(../images/chevronright_icon.png) center no-repeat;
+       }
+  }
+  &:hover{
+     .chevron{
+         @include  jsx-filter(100,1);
+     }
+     .pre{
+            background: url(../images/chevronleft_icon.png) no-repeat center rgba(0,0,0,.3);
+       }
+       .next{
+            background:url(../images/chevronright_icon.png) no-repeat center rgba(0,0,0,.3);
+       }
+  }
+    //主体
+    .scroll-main{  
+       overflow: nth($_publicShow, 1);
+       li{
+          overflow:hidden;
+          //左侧图片切换
+          .leftimg{
+             width: 53%;
+             position:$_rel;
+             //切换按钮
+             .check-btn{
+                @extend %jsx-btnarray;
+             }
+          }
+          //右侧文字
+          .rightcon{
+             width: 47%;
+             position:$_rel;
+             overflow: nth($_publicShow,1);
+             .textcontent{
+              position:$_absol;
+              #{$_lf}:countnumC(nth($_publicData, 40),2);
+              #{$_tp}:nth($_publicData, 42);
+              z-index: 2;
+              color: nth($_publicColor, 1);
+              max-height: countnumC(nth($_publicData, 38),8);
+              overflow: nth($_publicShow,1);
+              //内容列表
+              > div{
+                margin-#{$_bt}: nth($_publicData, 19);
+                span{
+                  font-weight: bold;
+                }
+                p{
+                  color: lighten(nth($_publicColor, 1), nth($_publicData, 10));
+                  margin:nth($_publicData, 17) nth($_publicData, 4);
+                  &::before{
+                    content: '-';
+                    display: nth($_publicShow, 4);
+                    margin-#{$_rg}:nth($_publicData, 34);
+                  }
+                }
+              }
+              //标题
+              h3{
+                margin-#{$_bt}: nth($_publicData, 33);
+                font-size: nth($_publicData, 36);
+                font-weight: nth($_publicData, 3);
+              }
+            }
+             //链接
+              a{
+                 @extend %publicbtn;
+                 position: $_absol;
+                 #{$_lf}:countnumC(nth($_publicData, 40),2);
+                 #{$_bt}:nth($_publicData, 38);
+                 z-index: 3;
+              }
+          }
+       }
+    }
+}
+//20171027
+@include jsx-media(320px,991px){
+    .jsx-themecamp {
+        margin: nth($_publicData, 4) nth($_publicData, 2) 0.52rem;
+        position: $_rel;
+        //左右切换按钮
+        .chevron {
+            display: nth($_publicData,1);
+        }
+        //主体
+        .scroll-main {
+            overflow: nth($_publicShow, 1);
+            li {
+                overflow: hidden;
+                float: none;
+                //左侧图片切换
+                .leftimg {
+                    width: 53%;
+                    position: $_rel;
+                }
+                //右侧文字
+                .rightcon {
+                    width: 47%;
+                    position: $_rel;
+                    overflow: nth($_publicShow, 1);
+                    .textcontent {
+                        width: nth($_publicData,14);
+                        position: $_absol;
+                        #{$_lf}: nth($_publicData, 4);
+                        #{$_tp}: nth($_publicData, 4);
+                        z-index: 2;
+                        color: nth($_publicColor, 1);
+                        max-height: countnumC(nth($_publicData, 38), 8);
+                        overflow: nth($_publicShow, 1);
+                        text-align: $_ct;
+                        //内容列表
+                        >div {
+                            margin-#{$_bt}: nth($_publicData, 19);
+                            span {
+                                font-weight: bold;
+                            }
+                            &:nth-child(3){
+                                width: nth($_publicData,12);
+                                margin:nth($_publicData,4) nth($_publicData,2);
+                                span{
+                                    &::after{
+                                        content: '：';
+                                    }
+                                }
+                            }
+                            p {
+                                display: nth($_publicShow,4);
+                                color: lighten(nth($_publicColor, 1), nth($_publicData, 10));
+                                margin: nth($_publicData, 17) nth($_publicData, 4);
+                                &::before {
+                                    display: nth($_publicData,1);
+                                }
+                                &::after{
+                                    content: '、';
+                                }
+                                &:last-child::after{
+                                    content: '。';
+                                }
+                            }
+                        }
+                        //标题
+                        h3 {
+                            margin-#{$_tp}:0.48rem;
+                            margin-#{$_bt}:0.46rem;
+                            font-size: 0.3rem;
+                            font-weight: nth($_publicData, 3);
+                        }
+                    }
+                    //链接
+                    a {
+                        position: $_absol;
+                        width: nth($_publicData,8);
+                        height: 0.64rem;
+                        font-size: 0.24rem;
+                        line-height: 0.64rem;
+                        background: nth($_publicColor,6);
+                        border: nth($_publicData,1);
+                        border-radius: 0.06rem;
+                        #{$_lf}: countnumC(nth($_publicData, 11), 0.5);
+                        #{$_bt}: 0.7rem;
+                        z-index: 3;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+@charset "utf-8";
+/*
+ * 图片列表(含文字)模块
+ * Author by jiangshengxiang @2017.08.25
+ */
+//
+.jsx-cardpanner{
+    padding:nth($_publicData, 26);
+    margin-#{$_bt}:nth($_publicData, 43);
+    @extend %boxsizing;
+    .textsection{
+        margin-#{$_tp}:nth($_publicData, 38); 
+        .titles{
+           color: nth($_publicColor, 6);
+           font-size: nth($_publicData, 31);
+        }
+        p{
+           margin-#{$_tp}:nth($_publicData, 26); 
+        }
+    }
+}
+
+//三列
+.jsx-cardpannel-3{
+   li{
+      width: nth($_publicData, 9);
+      @extend .jsx-cardpanner;
+   }
+}
+//20171027
+@include jsx-media(nth($_device,1),nth($_device,2)){
+    .jsx-cardpanner{
+        padding:0.13rem 4%;
+        margin-#{$_bt}:nth($_publicData, 4);
+        .textsection{
+            margin-#{$_tp}:nth($_publicData, 4);
+            padding: 8.5% 7.6%;
+            background: nth($_publicColor, 6);
+            border-radius: 0.08rem;
+            .titles{
+               color: nth($_publicColor, 1);
+               font-size: 0.3rem;
+               font-weight: bold;
+            }
+            p{
+               margin-#{$_tp}:0.24rem;
+               color: nth($_publicColor, 1);
+               font-size: 0.24rem;
+               line-height: 0.36rem;
+            }
+        }
+    }
+    //三列
+    .jsx-cardpannel-3{
+        margin-bottom: 0.48rem;
+       li{
+          width: nth($_publicData, 14);
+          a img{
+              display: nth($_publicData,1) ;
+          }
+       }
+    }
+}

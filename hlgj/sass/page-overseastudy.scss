@@ -1,0 +1,427 @@
+@charset "utf-8";
+/*
+ * 美国本科、研究生、艺术生b留学样式
+ * Author by jiangshengxiang @2017.08.25
+ */
+
+@import "public";
+@import "css-reset";
+@import "mediascreen";
+@import "header";
+@import "footer";
+@import "banner";
+@import "form";
+@import "stepstyle";
+@import "pictextpannel";
+@import "tabmenu";
+@import "bombbox";
+
+body{
+	background:nth($_publicColor, 22);
+}
+
+//轮播图
+.jsx-indexbanner .jsx-clickicon span{
+    margin:nth($_publicData, 4) nth($_publicData, 20); 
+    width:nth($_publicData, 26);
+    height:nth($_publicData, 26);
+}
+
+//服务流程
+.jsx-servicestep{
+	   background:nth($_publicColor, 1);
+       padding-#{$_bt}:countnumC(nth($_publicData, 17),86);
+       padding-#{$_tp}:nth($_publicData, 43);
+       ul{
+          margin-#{$_tp}: countnumAdd(nth($_publicData, 43),14);
+          li{
+            width: nth($_publicData, 9);
+            color: nth($_publicColor, 1);
+            text-align: $_ct;
+            padding-#{$_rg}:nth($_publicData, 38);
+            padding-#{$_lf}:nth($_publicData, 38);
+            position:$_rel;
+            @extend %boxsizing;
+            dl{
+               height: countnumC(nth($_publicData, 34),10);
+               padding:nth($_publicData, 34) nth($_publicData, 4);
+            }
+            &::before{
+               content: '';
+               text-align: $_ct;
+               font-size: nth($_publicData, 30);
+               line-height: countnumC(nth($_publicData, 42),2); 
+               width: 101px;
+               height: countnumC(nth($_publicData, 19),29);
+               display: nth($_publicShow, 3);
+               position:$_absol;
+               #{$_bt}:countnumC(nth($_publicData, 26),-11);
+               #{$_lf}:nth($_publicData, 10);
+               z-index: 2;
+               margin-#{$_lf}:countnumC(nth($_publicData, 42),-1);
+            }
+            &::after{
+               content: '';
+               display: nth($_publicShow, 3);
+               width: nth($_publicData, 14);
+               border-#{$_bt}:nth($_publicData, 15) nth($_publicBorderstyle, 2) nth($_publicColor, 24);
+               height: nth($_publicData, 4);
+               position:$_absol;
+               #{$_bt}:countnumC(nth($_publicData, 17),-53);
+               #{$_lf}:nth($_publicData, 4);
+               z-index: 1;
+            }
+            &:first-child{
+               dl{
+                  background:nth($_publicColor, 26);
+               }
+               &::before{
+                  content: '申请前';
+                  background:url(../images/service_icon1.png) center no-repeat;
+               }
+            }
+            &:nth-child(2){
+               dl{
+                  background:nth($_publicColor, 27);
+               }
+               &::before{
+                  content: '申请中';
+                  background:url(../images/service_icon2.png) center no-repeat;
+               }
+            }
+            &:last-child{
+               dl{
+                  background:nth($_publicColor, 25);
+               }
+               &::before{
+                  content: '申请后';
+                  background:url(../images/service_icon3.png) center no-repeat;
+               }
+            }
+            dt{
+               font-size: nth($_publicData, 28);
+               line-height: nth($_publicData, 33);
+               margin:nth($_publicData, 4) nth($_publicData, 26);
+            }
+            dd{
+               margin:countnumAdd(nth($_publicData, 42),10) nth($_publicData, 26) nth($_publicData, 4);
+               text-align: $_lf;
+            }
+         }
+       }
+}
+
+//美国留学申请
+.jsx-studyapply{
+    background:url(../images/study_bg.jpg) center no-repeat;
+    background-size:cover;
+    width: nth($_publicData, 14);
+    padding-#{$_bt}:nth($_publicData, 31);
+    .jsx-subtitle{
+       font-size: nth($_publicData, 31);
+       margin:nth($_publicData, 37) nth($_publicData, 2) nth($_publicData, 29);
+       line-height: nth($_publicData, 31);
+       color: nth($_publicColor, 1);
+    }
+    p{
+       color: nth($_publicColor, 1);
+       text-align: $_ct;
+       font-size: nth($_publicData, 27);
+    }
+    .jsx-form{
+        margin:countnumAdd(nth($_publicData, 42),10) nth($_publicData, 2) countnumC(nth($_publicData, 31),10);
+        li{
+           width: nth($_publicData, 7);
+           padding:nth($_publicData, 4) nth($_publicData, 22);
+           position:$_rel;
+           @extend %boxsizing;
+           @extend %jsx-inlineform;
+        }
+    }
+    .abtn{
+       margin:nth($_publicData, 4) nth($_publicData, 2);
+       @extend %publicbtn;
+    }
+    &::before{
+       display:nth($_publicShow, 3);
+       content: '';
+       height:countnumC(nth($_publicData, 42),2);
+       background:nth($_publicColor, 1);
+    }
+}
+
+//留学申请时间表
+.jsx-applytime{
+     @extend %stepstyle;
+     //最后一行
+    .applytime-ul:last-of-type{
+        border:nth($_publicData, 1);
+        margin-#{$_tp}:nth($_publicData, 4);
+        li{
+           margin: nth($_publicData, 4) .3%;
+        } 
+      }
+     //注释说明
+    .notes{
+        margin:nth($_publicData, 42) nth($_publicData, 2) nth($_publicData, 38);
+        background:nth($_publicColor, 37);
+        border:nth($_publicData, 15) nth($_publicBorderstyle, 1) nth($_publicColor, 38);
+        padding:nth($_publicData, 26) nth($_publicData, 22);
+        color: nth($_publicColor, 4);
+        span{
+            color: nth($_publicColor, 6);
+            display: nth($_publicShow, 3);
+            width: nth($_publicData, 5);
+            max-width: nth($_publicData, 34);
+        }
+        > div{
+            width: countnumPlus(nth($_publicData, 14), nth($_publicData, 5));
+        }
+    }
+}
+
+//学校列表
+.jsx-schoollist{
+    background:nth($_publicColor, 1);
+    padding:nth($_publicData, 40) nth($_publicData, 4);
+    .toptext{
+       text-align: $_ct;
+       margin-#{$_bt}:nth($_publicData, 40);
+    }
+    li{
+       //左边校名
+       .school-name{
+          width: 39%;
+          position:$_rel;
+          //校名文字
+          .textlayer{
+             background:rgba(255,255,255, .7);
+             text-align: $_ct;
+             padding:nth($_publicData, 4) nth($_publicData, 32);
+             @extend %absolute0;
+             @extend %boxsizing;
+             @include jsx-transtion(all, .5s);
+             //校名、地址
+             h2{
+                font-size: nth($_publicData, 30);
+                margin-#{$_bt}: nth($_publicData, 36);
+                line-height: nth($_publicData, 34);
+             }
+             //关键词
+             p{
+                color: nth($_publicColor, 3);
+                line-height: nth($_publicData, 31);
+             }
+          }
+       }
+       //右边学校介绍
+       .school-img{
+          width: 61%;
+          position:$_rel;
+          //学校介绍
+          .detaillayer{
+              background:rgba(255,255,255, .7);
+              text-align: $_lf;
+              padding:nth($_publicData, 32) nth($_publicData, 29) nth($_publicData, 32) nth($_publicData, 43);
+              color: nth($_publicColor, 32);
+              font-size: nth($_publicData, 27);
+              overflow-y: nth($_publicData, 2);
+              @extend %boxsizing;
+              @extend %absolute0;
+              @include jsx-filter(0,0);
+              @include jsx-transtion(all, .5s);
+              p{
+                  line-height: nth($_publicData, 34);
+                  color:nth($_publicColor, 32);
+                  @extend %texttypestyle;
+              }
+           }
+       }
+       //鼠标悬浮
+       &:hover{
+           cursor: nth($_publicCursor, 1);
+           .textlayer{
+               background:rgba(147,254,248, .7);
+           }
+           .detaillayer{
+               @include jsx-filter(100,1);
+               box-shadow: countnumC(nth($_publicData, 17), -1) nth($_publicData, 4) nth($_publicData, 32) rgba(0,0,0,.3); 
+           }
+       }
+    }
+}
+
+//服务内容
+.jsx-servicecontent{
+	background:nth($_publicColor, 28);
+    padding:nth($_publicData, 43) nth($_publicData, 4) nth($_publicData, 4);
+    .container{
+    	padding:nth($_publicData, 38) nth($_publicData, 4) nth($_publicData, 43);
+        @extend %jsx-tabMenus;
+    }
+}
+
+//校园参观
+.jsx-campusvisit{
+	background:nth($_publicColor, 1);
+	padding-#{$_tp}: countnumC(nth($_publicData, 42),2);
+	position:$_rel;
+	&::after{
+	   content: '';
+	   background: nth($_publicColor, 22);
+	   position:$_absol;
+	   #{$_bt}:nth($_publicData, 4);
+	   #{$_lf}:nth($_publicData, 4);
+	   z-index: 1;
+	   height:countnumAdd(nth($_publicData, 10),9%);
+	   width: nth($_publicData, 14);
+	}
+	.campus{
+		position:$_rel;
+		z-index: 2;
+		.campusimg{
+		   width: countnumPlus(nth($_publicData, 10),5%);
+	    }
+	    .campustext{
+           width: countnumAdd(nth($_publicData, 10),5%);
+           padding-#{$_lf}:nth($_publicData, 29);
+           @extend %boxsizing;
+           h3{
+           	  color: nth($_publicColor, 6);
+           	  font-size:countnumAdd(nth($_publicData, 30), 1);
+           	  line-height: nth($_publicData, 35);
+           	  font-weight: nth($_publicData, 3);
+           }
+           .pline{
+           	  padding:nth($_publicData, 32) nth($_publicData, 4);
+           	  font-size: nth($_publicData, 27); 
+           	  p{
+           	     line-height: nth($_publicData, 31);
+                 @extend %texttypestyle;
+           	  }
+           }
+           .contact{
+           	  color: nth($_publicColor, 6);
+           	  margin-#{$_bt}:nth($_publicData, 28);
+           	  line-height: nth($_publicData, 31);
+           	  font-size: nth($_publicData, 27);
+           	  a{
+           	  	 color: nth($_publicColor, 6);
+           	  	 &:hover{
+           	  	 	text-decoration: underline;
+           	  	 }
+           	  }
+           }
+           .boot{
+           	  .wx{
+           	  	  width: countnumAdd(nth($_publicData, 43),8);
+           	  }
+           	  .abtn{
+           	  	  @extend %publicbtn-blue;
+           	  	  width: countnumC(nth($_publicData, 42),3);
+           	  	  margin-#{$_tp}:nth($_publicData, 26);
+           	  }
+           }
+	    }
+	}
+}
+
+//艺术生申请方法
+.jsx-applyart{
+	padding-#{$_tp}:nth($_publicData, 43);
+	padding-#{$_bt}:nth($_publicData, 43);
+	line-height:nth($_publicData, 33);
+	.leftb{
+		color: nth($_publicColor, 32);
+		width: nth($_publicData, 6);
+		min-width: countnumC(nth($_publicData, 41), 2);
+		text-align: $_rg;
+	}
+	.rightp{
+		width: countnumPlus(nth($_publicData, 14),nth($_publicData, 6));
+		color:nth($_publicColor, 4);
+	}
+}
+
+//顶尖私立高中条件对比
+.jsx-schoolcontrast{
+	background:nth($_publicColor, 1);
+	.contrastwrap{
+	    background:nth($_publicColor, 16);
+	    padding:nth($_publicData, 43) countnumPlus(nth($_publicData, 43),10);
+	    //顶部文字
+	    .toptext{
+	    	text-align: $_ct;
+	    	margin-#{$_bt}:nth($_publicData, 40);
+	    }
+	    //tab菜单
+	    .tab-nav{
+	    	width: nth($_publicData, 10);
+	    	background:lighten(nth($_publicColor, 39), 30%);
+	    	color: nth($_publicColor, 1);
+	    	font-size: nth($_publicData, 29);
+	    	text-align: $_ct;
+	    	height: countnumAdd(nth($_publicData, 43),nth($_publicData, 32));
+	    	line-height: countnumAdd(nth($_publicData, 43),nth($_publicData, 32));
+	    	&.jsx-active{
+	    		background:nth($_publicColor, 39);
+	    	}
+	    }
+	    //tab内容显示区域
+	    .tab-show{
+	    	background:nth($_publicColor, 1);
+	    	padding:nth($_publicData, 34) nth($_publicData, 4);
+	    	.contrast-content{
+	    		display: nth($_publicData, 1);
+	    		li{
+                   width: nth($_publicData, 8);
+                   min-height: countnumC(nth($_publicData, 19),66);
+                   padding:nth($_publicData, 4) nth($_publicData, 35);
+                   @extend %boxsizing;
+                   h2{
+                      font-weight: nth($_publicData, 3);
+                      font-size: nth($_publicData, 28);
+                      text-align: $_ct;
+                      margin-#{$_bt}:nth($_publicData, 29);
+                   }
+	    		}
+	    		&.jsx-active{
+	    			display: nth($_publicShow, 3);
+	    		}
+	    	}
+	    }
+	}
+}
+
+//常见问题
+.jsx-question{
+   padding-#{$_tp}:nth($_publicData, 29);
+   background:nth($_publicColor, 1);
+   &.bg{
+       background:nth($_publicColor, 22);
+       padding-#{$_tp}:nth($_publicData, 43);
+   }
+   .questionwrap{
+       margin:nth($_publicData,4) nth($_publicData,2);
+       padding:nth($_publicData, 38) nth($_publicData, 4) countnumC(nth($_publicData, 38), 3);
+       width: 60%;
+       .pro-img{
+          width: 40%
+       }
+       .pro-list{
+          width: 60%;
+          padding-#{$_lf}:countnumC(nth($_publicData, 40),2);
+          @extend %boxsizing;
+          li{
+             line-height: nth($_publicData, 34);
+             a{
+                color: nth($_publicColor, 2);
+                @extend %texttypestyle;
+                &:hover{
+                   color: nth($_publicColor, 6);
+                }
+             }
+          }
+       }
+   }
+}
