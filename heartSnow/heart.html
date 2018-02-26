@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小心心呀</title>
+		<style>
+		*{
+            margin: 0;
+            padding: 0;
+        }
+        html,body,#box{
+        	width: 100%;
+            height:100%
+        }
+        #box {
+            background: #000000;           
+            position: relative;
+        }
+      
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script>
+		var box=document.getElementById('box');
+		var engine= new Engine();
+		engine.autoStart(10,function(){
+			new Pic("img/heart.png").appendTo(box).init().fall('left')
+		});
+
+		function Engine(){
+			this.autoStart = function(interval,cbk){
+				this.timer = setInterval(function(){
+					cbk();
+				},interval)
+			}
+		}	
+		function Pic(url){
+			this.element=document.createElement("img");
+			this.init=function(){
+				this.element.src=url;
+				this.element.style.width=Math.round(Math.random()*40)+10 + "px";
+				this.element.style.position='absolute';
+				this.element.style.top=0;
+				this.element.style.left= Math.round(Math.random()*(this.target.offsetWidth - parseInt(this.element.style.width)))+"px";
+				//offsetWidht获取的不带单位，width获取的带单位,用parseInt可以去掉单位
+				this.speedx = Math.random()*10+5;
+				this.speedy = Math.random()*15+5;
+				return this;
+			}
+			this.appendTo=function(target){
+				this.target=target;    
+				this.target.appendChild(this.element);
+				return this;
+			}
+			this.fall=function(dir){
+				this.timer = setInterval(function(){
+					this.element.style.left=this.element.offsetLeft + (dir == "left"?-this.speedx:this.speedx) +"px";
+					this.element.style.top=this.element.offsetTop + this.speedy +'px';
+					if (this.element.offsetTop>(this.target.offsetHeight-this.element.offsetHeight)||this.element.offsetLeft>(this.target.offsetWidth-this.element.offsetWidth)){
+						this.element.remove();  //删除自己
+						clearInterval(this.timer);
+					}
+				}.bind(this),30)
+			}
+		}
+	</script>
+</html>

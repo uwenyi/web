@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			 * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #box {
+            width: 1000px;
+            height: 600px;
+            background: #000000;           
+            margin: 20px auto;
+            position: relative;
+        }
+      
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script>
+		/*snow.style.position = "absolute";
+   		
+   		snow.style.top = 0;
+   		snow.style.left = Math.floor( Math.random()*(box.offsetWidth-parseInt(snow.style.width)) ) + "px";
+   		
+   		
+   		var speedx = -Math.random()*10-5;
+   		var speedy = Math.random()*15+5;
+   		var t = setInterval(function(){
+   			snow.style.left = snow.offsetLeft + speedx + "px";
+   			snow.style.top = snow.offsetTop + speedy + "px";
+   			if(snow.offsetLeft < -snow.offsetWidth || snow.offsetTop > box.offsetHeight) {
+   				snow.remove();
+   				clearInterval(t);
+   			}
+   		},30);
+   		box.appendChild(snow);
+   	},30);*/
+   	//以上代码耦合度太高，代码块之间互相影响，不独立。以下采用面向对象方式，让其分工明显
+   	var box = document.getElementById("box");
+   	var engine = new Engine();
+   	
+   	engine.autoStart(50,function(){
+   		//调用autoStart这个函数。里面的所有参数在这里改就好了，其余的代码块都不用再变动。function(){}就相当于回调函数
+   		new pic("img/snow.png").appendTo(box).init().fall("left");//回调使用这些函数
+   		//面向对象好处，只用改变这个路径参数就改变图片，其余的不用改，仍然能实现同样的效果；代码重用性高，耦合度低
+   		
+   	});
+   	//以上为使用下面这个面向对象框架
+   	
+   	//------------------框架----------------------------
+   	function Engine(){
+   		this.autoStart = function(interval,cbk){	//autoStart这个函数里有两个参数，第一个可以设定时间间隔，第二个为回调函数
+			this.timer = setInterval(function(){
+				cbk();
+			},interval)
+   		}
+   		this.stop = function(){
+   			clearInterval(this.timer);
+   		}
+   		
+   	}
+   	//以上模块负责控制定时器
+   	
+   	function pic(url){				//这个函数接收路径这个参数
+   		this.element = document.createElement("img");	//创建一个DOM元素为img
+   		
+   		//--------------------------生成图片模块-----------------------------------
+   		this.init = function(){		//图片初始化的状态
+   			this.element.src = url;
+   			this.element.style.width = Math.round(Math.random()*40)+10 + "px";
+   			this.element.style.position = "absolute";
+   			this.element.style.top = 0;
+   			this.element.style.left = Math.round(Math.random()*(this.target.offsetWidth - parseInt(this.element.style.width)))+"px";
+   			//这个img的起始位置随机生成，范围为容器宽度-图片本身宽度。用parseInt去掉单位px
+   			this.speedx = Math.random()*10+5;	//x轴的速度，即在x轴每次走的距离
+   			this.speedy = Math.random()*15+5;
+   			return this;
+   		}
+   		
+   		//---------------------图片元素插入到哪个里的模块---------------------------------
+   		this.appendTo = function(target){
+   			this.target = target;
+   			this.target.appendChild(this.element);
+   			return this;
+   		}
+   		
+   		//----------------------控制图片下落模块----------------------------------
+   		this.fall = function(dir){	//接收的参数为飘动方向
+   			this.timer = setInterval(function(){
+   				this.element.style.left = this.element.offsetLeft + (dir == "left"?-this.speedx:this.speedx) +"px";
+   				this.element.style.top = this.element.offsetTop + this.speedy + "px";
+   				if(this.element.offsetLeft < -this.element.offsetLeft || this.element.offsetTop>(this.target.offsetHeight-this.element.offsetHeight)||this.element.offsetLeft>(this.target.offsetWidth-this.element.offsetWidth)){
+   					this.element.remove();
+   					clearInterval(this.timer);
+   				}
+   			}.bind(this),30)
+   		}
+   	}
+   	
+   	
+   	
+   	
+	</script>
+</html>

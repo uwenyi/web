@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>放大镜</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+			}
+			.container{
+				width: 300px;
+				margin-top: 50px;
+				margin-left: 100px;
+				position: relative;
+			}
+			.box_s{
+				width: 300px;
+				position: relative;
+			}
+			.box_s img{
+				width: 100%;
+				display: block;
+			}
+			.box_s .mask{
+				width: 200px;
+				height: 200px;
+				background: rgba(255,255,0,0.4);
+				position: absolute;
+				display: none;
+				top: 0;
+				left: 0;
+			}
+			.box_l{
+				width: 500px;
+				height: 500px;
+				overflow: hidden;
+				position: absolute;
+				left: 350px;
+				top: 0;
+			}
+			.box_l img{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box_s">
+				<img src="shuangjiang.jpg"/>
+				<div class="mask"></div>
+			</div>
+			<div class="box_l">
+				<img src=""/>
+			</div>
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(window).load(function(){
+			//左边容器与document边界的距离
+			var offsetL = $('.box_s').offset().left;
+			var offsetT = $('.box_s').offset().top;
+			//左边容器宽高
+			var box_sW = $('.box_s').width();
+			var box_sH = $('.box_s').height();
+			//右边容器宽
+			var box_lW = $('.box_l').width();
+			//蒙板宽高
+			var maskW = $('.box_s .mask').width();
+			var maskH = $('.box_s .mask').height();
+			//比例
+			var scale = box_lW / maskW;
+			$('.box_l img').css('width',$('.box_s img').width()*scale+'px');
+			//鼠标移入事件--------------------
+			$('.box_s').mouseenter(function(){
+				$('.box_s .mask').show();
+				//设置大图的src
+				var src = $('.box_s img').attr('src');
+				$('.box_l').show().find('img').attr('src',src);
+				//鼠标移动事件--------------------
+				$('.box_s').mousemove(function(e){
+					//获取鼠标的坐标，原点为页面左上角
+					var x = e.clientX;
+					var y = e.clientY;
+					//鼠标和box_s边界的距离
+					var disX = x - offsetL;
+					var disY = y - offsetT;
+					//蒙版和box_s边界的距离
+					var left = disX - maskW/2;  //
+					var top  = disY - maskH/2;
+					//如果left越界
+					if (left > box_sW - maskW) {
+						left = box_sW - maskW
+					}else if(left < 0){
+						left = 0;
+					}
+					//如果top越界
+					if (top > box_sH - maskH) {
+						top = box_sH - maskH
+					}else if(top < 0){
+						top = 0;
+					}
+					//大图的top和left  关系是倍数(scale)，方向相反
+					var top2 = -(top*scale);
+					var left2 = -(left*scale);
+					$('.box_s .mask').css({
+						left:left+'px',
+						top:top+'px'
+					});
+					$('.box_l img').css({
+						left:left2+'px',
+						top:top2+'px'
+					});
+				});
+			});
+			$('.box_s').mouseleave(function(){
+				$('.box_s .mask').hide();
+				$('.box_l').hide();
+			});
+		});
+		
+	</script>
+</html>
