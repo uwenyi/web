@@ -1,0 +1,6 @@
+@charset "utf-8";
+*{margin: 0;padding: 0;font-family: "微软雅黑"}
+li{list-style: none}
+button{border: 0px;outline: none}
+.clearfix:after{content: ' ';display: block;height: 0;clear: both;overflow: height}
+.clearfix{zoom: 1}

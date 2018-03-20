@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="src/assets/common.css">
+    <title>addrlist</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      (function(doc, win) {
+        var docEle = doc.documentElement;
+        var fn = function() {
+          var width = docEle.clientWidth;
+          docEle.style.fontSize = 100 * (width / 750) + "px";  //假设设计图宽度是按照750像素
+        };
+        win.addEventListener("resize", fn, false);
+        doc.addEventListener("DOMContentLoaded", fn, false);  //ready
+        win.addEventListener("pageshow", function(e) {     //缓存中加载
+          if(e.persisted) {
+            fn();
+          }
+        }, false);
+      }(document, window));
+    </script>
+  </body>
+</html>
